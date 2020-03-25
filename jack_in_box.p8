@@ -18,6 +18,7 @@ time_damage = 0
 second_save = 9
 save_ef_speed = 21
 save_form = false
+color_save = 0
 i = 0
 max_frame = 3
 speed = 5
@@ -39,7 +40,7 @@ cls()
 map(0,0,0,0,100,100)
 
 if time_damage%2 == 0 then
-pal(8,1)
+pal(8,color_save)
 else
 pal()
 end
@@ -67,7 +68,8 @@ end
 --movement
 function key_control()
 
-if(btnp(⬆️)
+if(btnp(⬆️) and
+ (colx.x == nil or colx.x-(8*xd) > 4)
  and hero.sy == 0 
  and hero.on_flore) then
  hero.sy -= jump_power
