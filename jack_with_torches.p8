@@ -24,6 +24,7 @@ speed = 5
 
 
 torch_init="0,8,60 2,13,60 1,11,54 0,16,52 1,30,52 2,37,52 0,60,49 1,73,56 0,53,59 2,49,59 1,45,59 "
+torch_arr = torch_parse(torch_init,11) 
 my_time=0
 end
 
@@ -54,7 +55,7 @@ end
 
 _draw_hero()
 draw_hero_hp()
-torch_draw(torch_init,11,3)
+torch_draw(torch_arr)
 end
 
 function _draw_hero()
@@ -191,8 +192,9 @@ function draw_hero_hp()
   end
 end
 -->8
-function torch_draw(str, torch_num, spr_num)
+function torch_parse(str, torch_num)
  start_sub = 1
+ init={}
  for i=1, torch_num do
    space_index 
      = get_sumb_index(
@@ -200,18 +202,18 @@ function torch_draw(str, torch_num, spr_num)
    sub_str
      = sub(str,start_sub,space_index)
    
-   anim_index
-     = get_anim_index(sub_str, spr_num) 
    
    coord={}
    coord.x=0
    coord.y=0
    
    get_coord(sub_str,coord)  
-   mset(coord.x,coord.y,68+anim_index)  
+   init[i*3-2]=coord.x
+   init[i*3-1]=coord.y
+   init[i*3]=sub(sub_str,1,1) 
    start_sub = space_index+1           
  end 
-
+ return init
 end
 
 
@@ -229,21 +231,24 @@ function get_sumb_index(
 end
 
 
-function get_anim_index(sub_str,spr_num)
- ani_num = sub(sub_str,1,1)
- speed = 10
- number = flr(my_time/speed
-            +ani_num)%spr_num+1
- return number                
-end
-
-
 function get_coord(sub_str, coord)
  ser_index=get_sumb_index(
       sub_str, 3, ',')
  coord.x = sub(sub_str,3,ser_index-1)
  coord.y = sub(sub_str,ser_index+1, #sub_str)     
  
+end
+
+
+function torch_draw(torch_arr)
+ spd = 10
+ for i = 1, #torch_arr, 3 do
+  mset(torch_arr[i],
+       torch_arr[i+1],
+       69+flr(my_time/spd
+        +torch_arr[i+2])%3)
+       
+ end
 end
 __gfx__
 0000882200000000000a000000000000000000000000000000000000000000000000000000000000000000000000000008800880000000000000000000000000
