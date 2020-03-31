@@ -43,7 +43,7 @@ my_time+=1
    sfx(10,1,stat(20))
    end
  end
- if hero.sy < 0 then
+ if hero.sy ~= 0 then
   sfx(-1,1)
   b = -1
  end
