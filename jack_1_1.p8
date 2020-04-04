@@ -82,6 +82,7 @@ if i >= max_frame then
  end
 end
 -->8
+
 --movement
 function key_control()
 
@@ -118,7 +119,7 @@ if col.y  ~= nil and
 col.y-(8*yd) <= hero.sy 
  then
  hero.sy = 0 - (jump_power*1.55)
- add_tr_anim(hero.x/8,hero.y/8+2) 
+ add_tr_anim(hero.x/8+1,hero.y/8+2) 
  
 end
  
