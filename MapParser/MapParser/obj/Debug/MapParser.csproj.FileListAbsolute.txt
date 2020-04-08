@@ -1,0 +1,7 @@
+C:\Users\Konstantin\source\repos\MapParser\MapParser\bin\Debug\MapParser.exe.config
+C:\Users\Konstantin\source\repos\MapParser\MapParser\bin\Debug\MapParser.exe
+C:\Users\Konstantin\source\repos\MapParser\MapParser\bin\Debug\MapParser.pdb
+C:\Users\Konstantin\source\repos\MapParser\MapParser\obj\Debug\MapParser.csprojAssemblyReference.cache
+C:\Users\Konstantin\source\repos\MapParser\MapParser\obj\Debug\MapParser.csproj.CoreCompileInputs.cache
+C:\Users\Konstantin\source\repos\MapParser\MapParser\obj\Debug\MapParser.exe
+C:\Users\Konstantin\source\repos\MapParser\MapParser\obj\Debug\MapParser.pdb
