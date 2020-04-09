@@ -13,7 +13,7 @@ namespace MapParser
         static void Main(string[] args)
         {
             var mapCode = ReadMapCodeFromFile();
-            var compressedMapCode = compresseCode(mapCode);
+            var compressedMapCode = CompresseCode(mapCode);
             WriteCodeMapToFile(compressedMapCode);
         }
 
@@ -25,32 +25,32 @@ namespace MapParser
             sw.Close();
         }
 
-        private static string compresseCode(string mapCode)
+        private static string CompresseCode(string mapCode)
         {
             var temp = "";
-            for (int i = 0; i < mapCode.Length; i++)
+            for (int i = 0; i < mapCode.Length; i+=2)
             {
 
-                var currentSymbol = mapCode[i];
-                if (currentSymbol == '\r')
+                var currentSymbol1 = mapCode[i];
+                var currentSymbol2 = mapCode[i + 1];
+                if (currentSymbol1 == '\r')
                 {
                     temp += ", ";
-                    i += 1;
                 }
                 else
                 {
-                    var amountOfRepSym = FindAmountOfRepSym(currentSymbol, mapCode, i);
-                    i += amountOfRepSym - 1;
+                    var amountOfRepSym = FindAmountOfRepSym(currentSymbol1, currentSymbol2, mapCode, i);
+                    i += amountOfRepSym - 2;
+                    var numInSx = currentSymbol1.ToString() + currentSymbol2.ToString();
+                    int numInTn = Convert.ToInt32(numInSx, 16);
                     switch (amountOfRepSym)
                     {
-                        case 1:
-                            temp += currentSymbol.ToString() + " ";
-                            break;
+                        
                         case 2:
-                            temp += currentSymbol.ToString() + currentSymbol.ToString() + " ";
+                            temp += numInTn.ToString() + " ";
                             break;
                         default:
-                            temp += currentSymbol.ToString() + "x" + amountOfRepSym.ToString() + " ";
+                            temp += numInTn.ToString() + "x" + (amountOfRepSym/2).ToString() + " ";
                             break;
                     }
                 }
@@ -58,10 +58,10 @@ namespace MapParser
             return temp;
         }
 
-        private static int FindAmountOfRepSym(char currentSymbol, string mapCode, int startIndex)
+        private static int FindAmountOfRepSym(char currentSymbol1, char currentSymbol2, string mapCode, int startIndex)
         {
             int i = startIndex;
-            while (mapCode.Length - 1 >= i && mapCode[i] == currentSymbol) i++;
+            while (mapCode.Length - 1 >= i && mapCode[i] == currentSymbol1 && mapCode[i+1] == currentSymbol2) i+=2;
             return i - startIndex;
         }
 
