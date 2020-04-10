@@ -1,4 +1,4 @@
-﻿pico-8 cartridge // http://www.pico-8.com
+pico-8 cartridge // http://www.pico-8.com
 version 18
 __lua__
 --init
@@ -7,8 +7,8 @@ hero = {}
 col = {} -- colide position
 max_colide_count = 2
 hero.hp = 11
-hero.x = 12*8
-hero.y = 47*8
+hero.x = 10*8
+hero.y = 46*8
 hero.sx = 1 -- speed
 hero.sy = 1 -- speed
 jump_power = 4
@@ -52,7 +52,13 @@ end
 function _draw()
 cls()
 map(0,0,0,0,100,100)
-
+dist_to_col(0,0,3)
+xd =flr((sgn(hero.sx)+1)/2)
+yd =flr((sgn(hero.sy)+1)/2)
+spr(32,c.x,c.y)
+spr(32,c.x+8,c.y)
+spr(32,c.x,c.y+8)
+spr(32,c.x+8,c.y+8)
 
 if time_damage%2 == 0 then
 pal(10,1)
@@ -112,16 +118,7 @@ not save_form
  save_form = true
 end
 
-col = dist_to_col(0,0,3)
 
-if col.y  ~= nil and
-col.y-(8*yd) <= hero.sy 
- then
- hero.sy = 0 - (jump_power*1.55)
- add_tr_anim(hero.x/8+1,hero.y/8+2) 
- 
-end
- 
 
 time_damage = save_form and time_damage or save_ef_speed*second_save
 if save_form then
@@ -175,6 +172,19 @@ buf = hero.sx==0 and buf
                       or hero.sx
 hero.sx = (colx2.x == nil or
    colx.x == nil) and buf or 0
+
+col = dist_to_col(0,0,3)
+
+if col.y  ~= nil and
+col.y <= hero.sy 
+ then
+ hero.sy = 0 - (jump_power*1.55)
+ add_tr_anim(
+             hero.x/8+1,
+             hero.y/8+1) 
+ 
+end
+ 
 
 hero.x += hero.sx
 hero.y += hero.sy
@@ -338,18 +348,21 @@ function update_tr(sub_str)
      result = false
    end
    
-   if diff < 3 or diff > 17
+   if mget(x,y) == 113 or mget(x,y) == 112 
    then
+    if (diff < 3 or diff > 17)
+    then
    
     mset (x,y,112)
     mset (x,y-1,68)
-    
+   
    else 
    
     mset (x,y, 113)
     mset (x,y-1,114) 
     
-   end 
+    end 
+   end
    
    return result                  
 end
@@ -453,7 +466,7 @@ __gfx__
 44150404150404150404154444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
 15141414444444444444444414144415444444444444440404041504041544444404154444444444444444144444243444444414144424344444444444444444
 44444444444444151515154444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
-15070707070707070704040404040404040404044444444444444444444444444444150404041544444444444444253544141444444425354444441444444444
+15040404070707070704040404040404040404044444444444444444444444444444150404041544444444444444253544141444444425354444441444444444
 44444444444444444415154444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
 15444444441414441414141444444444444444441444441444444444441414141444444444441504040415444444444444441544444444444444444464444444
 44444414444444444415154444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
