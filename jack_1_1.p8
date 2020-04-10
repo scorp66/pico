@@ -1,4 +1,4 @@
-pico-8 cartridge // http://www.pico-8.com
+﻿pico-8 cartridge // http://www.pico-8.com
 version 18
 __lua__
 --init
@@ -52,7 +52,6 @@ end
 function _draw()
 cls()
 map(0,0,0,0,100,100)
-colx = dist_to_col(sgn(hero.sx),0,1)
 
 
 if time_damage%2 == 0 then
@@ -172,6 +171,11 @@ colx2.x == nil
   hero.sx *= -1
 end
 
+buf = hero.sx==0 and buf
+                      or hero.sx
+hero.sx = (colx2.x == nil or
+   colx.x == nil) and buf or 0
+
 hero.x += hero.sx
 hero.y += hero.sy
 end
@@ -188,9 +192,9 @@ for i=0,1,1 do
  for j=0,1,1 do
   if is_b(c.x+(8*i),c.y+(8*j),n)
   then
-  buf = abs(c.x-hero.x+(8*i))-4
+  local buf = abs(c.x-hero.x+(8*i))-4
   result.x= min(buf,buf)
-  buf = abs(c.y-hero.y+(8*j))-7
+  local buf = abs(c.y-hero.y+(8*j))-7
   result.y= min(buf,buf)
   return result
    end
