@@ -1,4 +1,4 @@
-pico-8 cartridge // http://www.pico-8.com
+﻿pico-8 cartridge // http://www.pico-8.com
 version 18
 __lua__
 --init
@@ -28,6 +28,9 @@ b = -1
 
 torch_arr = find_torch_arr() 
 my_time=0
+mm_pos = 0
+mm_status = 0
+mm_max_button = 2
 tr_str = ""
 end
 
@@ -35,12 +38,40 @@ end
 -->8
 --update
 function _update()
+
+if mm_status == 0 then 
+ main_menu_update()
+else
+ game_update()
+ end
+end
+
+function main_menu_update()
+
+if btnp(⬆️) then
+sfx(55)
+mm_pos = mm_pos <= 0 and mm_max_button-1
+                     or mm_pos-1
+end
+
+if btnp(⬇️) then
+sfx(55)
+mm_pos = (mm_pos+1)%mm_max_button
+end
+
+if btnp(5) then
+mm_status = mm_pos+1
+end
+end
+
+function game_update()
 key_control()
 camera(hero.x-64,hero.y-64)
 my_time+=1
 
 if tr_str != "" then 
   check_tr_anim()
+end
 end
 
 end
@@ -51,14 +82,24 @@ end
 --draw
 function _draw()
 cls()
+if mm_status == 0 then
+ main_menu()
+ else
+ level_draw()
+ end
+end
+
+function main_menu()
+print(mm_pos==0 and'❎start'or
+ 'start',32,40,mm_pos == 0 
+                    and 3 or 7)
+print(mm_pos==1 and'❎about'or
+ 'about',32,50,mm_pos == 1 
+                    and 3 or 7)
+end
+
+function level_draw()
 map(0,0,0,0,100,100)
-dist_to_col(0,0,3)
-xd =flr((sgn(hero.sx)+1)/2)
-yd =flr((sgn(hero.sy)+1)/2)
-spr(32,c.x,c.y)
-spr(32,c.x+8,c.y)
-spr(32,c.x,c.y+8)
-spr(32,c.x+8,c.y+8)
 
 if time_damage%2 == 0 then
 pal(10,1)
