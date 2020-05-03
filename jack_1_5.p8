@@ -32,7 +32,7 @@ time_damage = 1
 second_save = 3
 save_ef_speed = 21
 save_form = false
-i = 0
+img = 0
 max_frame = 3
 speed = 5
 last = 0
@@ -42,6 +42,8 @@ last = 0
 torch_arr = {}
 
 sprires_heart = {13,14,15}
+
+sprires_enemy = {48,49,50}
 
 sprites_coin = {28,29,30,31}
 
@@ -67,8 +69,19 @@ chains_zone = find_point_zone(66)
 torch_arr = find_point_zone(48)
 heart_arr = find_point_zone(80)
 coin_arr = find_point_zone(96)
-
+enemy_arr = find_point_zone(132)
+off_points(enemy_arr,68)
+enemy_ex()
 chains_ex()
+end
+
+function enemy_ex()
+for i = 0, #enemy_arr, 1 do
+enemy_arr[i].x *= 8
+enemy_arr[i].y *= 8
+enemy_arr[i].sx = 1
+enemy_arr[i].sy = 0
+end
 end
 -->8
 --update
@@ -112,7 +125,7 @@ function game_update()
 key_control()
 my_time+=1
 
-
+update_enemy(enemy_arr)
 
 
 
@@ -163,8 +176,8 @@ end
 function key_control()
 
 --save zone
-update_ex_h()
-col = collide(ex_hero,1,is_b)
+update_ex_h(hero)
+col = collide(ex_hero,1,is_b,1,1)
 if col ~= nil and col.x ~= nil
  then
 sfx(62)
@@ -174,8 +187,8 @@ update_point(col,point_zone,100,
 end
 
 --end lvl check
-update_ex_h()
-col = collide(ex_hero,33,is_b)
+update_ex_h(hero)
+col = collide(ex_hero,33,is_b,1,1)
 if (col ~= nil and
     col.y ~= nil) then
 current_level = 1
@@ -183,8 +196,8 @@ set_lvl(current_level)
 end
 
 --♥eard
-update_ex_h()
-col = collide(ex_hero,80,is_b)
+update_ex_h(hero)
+col = collide(ex_hero,80,is_b,1,1)
 if col ~= nil and col.x ~= nil
  then
    update_point(col,heart_arr,68,
@@ -194,8 +207,8 @@ end
 
 --coin
 
-update_ex_h()
-col = collide(ex_hero,96,is_b)
+update_ex_h(hero)
+col = collide(ex_hero,96,is_b,1,1)
 if col ~= nil and col.x ~= nil
  then
    update_point(col,coin_arr,68,
@@ -204,8 +217,8 @@ if col ~= nil and col.x ~= nil
 end 
 
 --button zone
-update_ex_h()
-col = collide(ex_hero,16,is_b)
+update_ex_h(hero)
+col = collide(ex_hero,16,is_b,1,1)
 if col ~= nil and col.x ~= nil
  then
 update_point(col,button_zone,84,
@@ -217,8 +230,8 @@ end
 update_chains()
 
 --thorns
-update_ex_h()
-col = dist_to_col(ex_hero,2,is_b2)
+update_ex_h(hero)
+col = dist_to_col(ex_hero,2,is_b2,1,1)
 if ((col  ~= nil and
 col.x <= hero.sx) or
 (col  ~= nil and
@@ -233,8 +246,8 @@ update_save_form()
 
 jump_s_b = false
 --springboards
-update_ex_h()
-col = dist_to_col(ex_hero,3,is_b2)
+update_ex_h(hero)
+col = dist_to_col(ex_hero,3,is_b2,1,1)
 if (col  ~= nil and
 col.y <= hero.sy) or 
 (col  ~= nil and
@@ -250,12 +263,12 @@ end
 
 
 function hero_move()
-update_ex_h()
+update_ex_h(hero)
 ex_hero.sx = sgn(hero.sx)
-colx = dist_to_col(ex_hero,1,is_b2)
-update_ex_h()
+colx = dist_to_col(ex_hero,1,is_b2,1,1)
+update_ex_h(hero)
 ex_hero.sy = sgn(hero.sy)
-coly = dist_to_col(ex_hero,1,is_b2)
+coly = dist_to_col(ex_hero,1,is_b2,1,1)
 hero.sy += gravity
 
 if coly ~= nil then
@@ -291,9 +304,9 @@ xpow = (colx == nil or
  hero.on_flore) and 1 
 or xpow
        
-update_ex_h()
+update_ex_h(hero)
 ex_hero.sy = -1
-coly = dist_to_col(ex_hero,1,is_b2)
+coly = dist_to_col(ex_hero,1,is_b2,1,1)
 if(btnp(⬆️)
  and hero.on_flore)
  and coly == nil then
@@ -304,9 +317,9 @@ end
 hero.x += hero.sx*xpow
 hero.y += hero.sy
 --
-update_ex_h()
+update_ex_h(hero)
 ex_hero.sy = 1
-coly = dist_to_col(ex_hero,1,is_b2)
+coly = dist_to_col(ex_hero,1,is_b2,1,1)
 hero.on_flore = hero.sy == 0 and
  coly ~= nil and coly.y-9 >= 0
 --
@@ -320,9 +333,9 @@ end
 end
 
 function double_jump()
-update_ex_h()
+update_ex_h(hero)
 ex_hero.sy = -1
-coly = dist_to_col(ex_hero,1,is_b2)
+coly = dist_to_col(ex_hero,1,is_b2,1,1)
 if btnp(⬆️)  and hero.sy > 0 and
 coly == nil
 then
@@ -332,9 +345,9 @@ xpow = 1
 end
 end
 
-function update_ex_h()
-ex_hero.x = hero.x
-ex_hero.y = hero.y
+function update_ex_h(obj)
+ex_hero.x = obj.x
+ex_hero.y = obj.y
 ex_hero.sx = 0
 ex_hero.sy = 0
 end
@@ -558,10 +571,10 @@ if diff > 20 then
   diff = 0
 end
   
-  update_ex_h()
+  update_ex_h(hero)
   ex_hero.y = 1
   cur = (signal and diff == 1) and
-      collide(ex_hero,3,is_b2) or cur
+      collide(ex_hero,3,is_b2,1,1) or cur
   x = cur.x ~= nil and cur.x/8 or x
   y = cur.y ~= nil and cur.y/8 or y   
   if (mget(x,y) == 113
@@ -584,20 +597,32 @@ end
   end
                    
 end
+
+
 -->8
 --collide
-function collide(obj,n,is_m)
+function collide(obj,n,is_m
+                   ,x_lim,y_lim)
+x_lim = x_lim == nil and 1 or x_lim
+y_lim = y_lim == nil and 1 or y_lim
+
+obj_m = {}
+obj_m.x = (obj.x+7)/8
+obj_m.y = (obj.y+5)/8
+
 local result = {}
 c = {} -- colide position
-c.x= 8*flr((obj.x+7)/8)+(obj.sx*8)
-c.y= 8*flr((obj.y+7)/8)+(obj.sy*8)
+c.x= 8*flr(obj_m.x)+(obj.sx*8)
+c.y= 8*flr(obj_m.y)+(obj.sy*8)
 
-for i=0,1,1 do
- for j=0,1,1 do
+for j=y_lim,0,-1 do
+ for i=0,x_lim,1 do
   if is_m(c.x+(8*i),c.y+(8*j),n) == n
   then
+  
   result.x= c.x+(8*i)
   result.y= c.y+(8*j)
+  
   return result
    end
   end
@@ -606,12 +631,14 @@ for i=0,1,1 do
  return result
 end
 
-function dist_to_col(obj,n,is_m)
+function dist_to_col(obj,n,is_m
+                   ,x_lim,y_lim)
 local result = {}
 local p = {}
 p.x = 0
 p.y = 0
-p = collide(obj,n,is_m)
+p = collide(obj,n,is_m,
+                    x_lim,y_lim)
 xd =flr((obj.sx+1)/2)
 
 if p.x ~= nil and p.y ~= nil then
@@ -634,14 +661,37 @@ map_n = mget(x/8,y/8)
 return fget(map_n,n) and n or 9
 end
 -->8
---hp
-function draw_hero_hp()
-  for i = 1,hero.hp do
-  spr(12,hero.x-64+i*8+1*i,
-               hero.y-56)
+--웃nemy
+function update_enemy(pz)
+  
+ for i = 0, #pz, 1 do
+  pz[i].is_active = true
+  
+  pz[i].sy = 1
+  col2 = dist_to_col(pz[i],1,is_b2,0,0)
+  pz[i].sy = 0
+  col = dist_to_col(pz[i],1,is_b2,0,0)
+  
+  if(col ~= nil or col2 == nul)
+   then 
+  pz[i].sx *= -1
+  end
+  
+  pz[i].x += pz[i].sx * 0.3
+  
+  
+  --damage
+  if pz[i].x >= hero.x and
+    pz[i].x < hero.x+16 and
+    pz[i].y >= hero.y and
+    pz[i].y < hero.y+16
+    and not save_form then
+ hero.hp-=1
+ sfx(58)
+ save_form = true
   end
 end
-
+end
 -->8
 --map parser
 function get_sumb_index(
@@ -733,8 +783,11 @@ pal()
 end
 
 
+
 draw_hero_coins()
 _draw_hero()
+
+
 draw_hero_hp()
 
 draw_arr(torch_arr,10,69,3)
@@ -742,26 +795,58 @@ draw_arr(torch_arr,10,69,3)
 draw_arr(heart_arr,5,13,3)
 
 draw_arr(coin_arr,5,28,4)
+
+_draw_enemy(enemy_arr)
+end
+
+function _draw_enemy(arr)
+
+
+for i=0,#arr,1 do
+sspr (0,24,
+8,8,
+arr[i].x,arr[i].y,8,8,
+sgn(arr[i].sx) == 1,false)
+end
+
 end
 
 function _draw_hero()
-i += 1/speed
+img += 1/speed
 frame = 0
 if hero.sy==0 then
-frame = flr(i) % max_frame
+frame = flr(img) % max_frame
 end
 
-print(hero.sy,hero.x,hero.y+16)
-print(hero.sy,hero.x,hero.y+8)
+
+enemy_arr[0].sy = 0
+col = dist_to_col(enemy_arr[0]
+              ,1,is_b2,0,0)
+if col ~= nil then 
+print(col.x,hero.x,hero.y+16)
+print(col.y,hero.x,hero.y+8)
+
+print(enemy_arr[0].x/8,hero.x,hero.y-16)
+print(enemy_arr[0].y/8,hero.x,hero.y-8)
+end
 
 sspr (frame*16,0,
 16,16,
 //+3 empty pixels on hero sprite
 hero.x+3,hero.y-((2-frame)*2)+1,16,16,
 sgn(hero.sx) == -1,false)
-if i >= max_frame then
- i = 0
+
+if img >= max_frame then
+ img = 0
  end
+end
+
+--hp
+function draw_hero_hp()
+  for i = 1,hero.hp do
+  spr(12,hero.x-64+i*8+1*i,
+               hero.y-56)
+  end
 end
 
 function map_parse(str_map, st_y)
@@ -876,11 +961,11 @@ __gfx__
 88888888000000009999999900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000066060666
 88888888000000009999999900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000066666666
 000808000808008000800800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
-008080080080800080080008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
-080808800888088008008080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
-888888888888888888888888000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
-886886888888888888688688000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
-086886800868868008688680000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
+008080080080088080080008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
+080808800880808808008880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
+888888888888888088888888000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
+868868888888888886886888000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
+068868800688688006886880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
 008888000088880000888800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
 000880000008800000088000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000dddddddd
 55550555000000000000000000000000000000000000c0000000c000000000c00000000000000000000000000000000000000000000000000000000000000000
@@ -971,16 +1056,16 @@ __gfx__
 44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
 1544441444445644444444444444d014444444040404044444444444444414444444444444441544444444444444444444444444444444444444444444444444
 44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
-15444414444444144444144444040404044444144444444444444444141414444444444444441544444444444444444444444444444444444444441444444444
+15444444444444144444444444040404044444144444444444444444141414444444444444441544444444444444444444444444444444444444441444444444
 44144444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
-15444444444444444444444444444444444444444414441414144444144444444414144414441544444444444444444444444444444444444444444444144444
+15444444444444440404040404444444444444444414441414144444144444444414144414441544444444444444444444444444444444444444444444144444
 44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
-15c14444444444c10404444444444444441444444444444444441344444444044444444444441544444444444444444444444444444444444444444444444444
+15c14444444444c10444444404034444441444444444444444444444444444044444444444441544444444444444444444444444444444444444444444444444
 44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
 04040404040404040404040404040404040404040404040404040404040404040404040404040444444444444444444444444444444444444444444444444444
 44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
 __gff__
-0000000000000000000000000050000000000000000000000000000060000000000000000000000000000000000000040000000000000000000000000000000202000000003020200000000000000000040200001010000100000000000000004242042100012100000000000000000008080042420000000000000000000000
+0000000000000000000000000050000000000000000000000000000060000000000000000000000000000000000000048484840000000000000000000000000202000000003020200000000000000000040200001010000100000000000000004242042100012100000000000000000008080042420000000000000000000000
 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 __map__
 4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
