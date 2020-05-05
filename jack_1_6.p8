@@ -118,7 +118,10 @@ end
 function game_update()
 key_control()
 my_time+=1
-
+if (hero.x == endlvl_x and
+    hero.y == endlvl_y) then
+set_lvl(1)
+end
 update_enemy(enemy_arr)
 
 
@@ -183,13 +186,13 @@ update_point(col,point_zone,100,
 end
 
 --end lvl check
-update_ex_h(hero)
-col = collide(ex_hero,33,is_b,1,1)
-if (col ~= nil and
-    col.y ~= nil) then
-current_level = 1
-set_lvl(current_level)
-end
+--update_ex_h(hero)
+--col = collide(ex_hero,33,is_b,1,1)
+--if (col ~= nil and
+   -- col.y ~= nil) then
+--current_level = 1
+--set_lvl(current_level)
+--end
 
 --♥eard
 update_ex_h(hero)
