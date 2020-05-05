@@ -26,7 +26,7 @@ endlvl_y = 43*8
 
 hero.sx = 1 -- speed
 hero.sy = 1 -- speed
-jump_power = 4
+jump_power = 3.9
 hero.on_flore = false
 gravity = 0.3
 time_damage = 1
@@ -54,7 +54,9 @@ current_level = 0
 my_time=0
 mm_pos = 0
 mm_status = 0
-mm_max_button = 2
+mm_max_button = 3
+lm_pos = 0
+lm_max_button = 2
 tr_str = ""
 cur_point = 0
 xpow = 1
@@ -90,6 +92,8 @@ elseif mm_status == 1 then
  //music(0)
  end
  game_update()
+elseif mm_status == 3 then
+ level_menu_update()
 else
  game_over_update()
  end
@@ -108,11 +112,36 @@ sfx(56)
 mm_pos = (mm_pos+1)%mm_max_button
 end
 
-if btnp(5) then
+if btnp(❎) then
 sfx(56)
 mm_status = mm_pos+1
 end
 
+end
+
+
+function level_menu_update()
+
+if btnp(⬆️) then
+sfx(56)
+lm_pos = lm_pos <= 0 and lm_max_button-1
+                     or lm_pos-1
+end
+
+if btnp(⬇️) then
+sfx(56)
+lm_pos = (lm_pos+1)%lm_max_button
+end
+
+if btnp(❎) then
+sfx(56)
+if lm_pos == 1 then 
+ set_lvl(1)
+end
+ 
+ mm_status = 1
+
+end
 end
 
 function game_update()
@@ -832,6 +861,8 @@ if mm_status == 0 then
  main_menu()
  elseif mm_status == 1 then
  level_draw()
+ elseif mm_status == 3 then
+ level_menu_draw()
  else 
  game_over()
  end
@@ -849,6 +880,18 @@ print(mm_pos==0 and'❎start'or
 print(mm_pos==1 and'❎about'or
  'about',hero.x,hero.y+10,
        mm_pos == 1 and 3 or 7)
+print(mm_pos== 2 and'❎levels'or
+ 'levels',hero.x,hero.y-10,
+       mm_pos == 2  and 3 or 7)              
+end
+
+function level_menu_draw()
+print(lm_pos==0 and'❎level 1'or
+ 'level 1',hero.x,hero.y,
+         lm_pos == 0 and 3 or 7)
+print(lm_pos==1 and'❎level 2'or
+ 'level 2',hero.x,hero.y+10,
+       lm_pos == 1 and 3 or 7)
 end
 
 function level_draw()
