@@ -105,18 +105,18 @@ end
 function main_menu_update()
 
 if btnp(⬆️) then
-sfx(56)
+sfx"56"
 mm_pos = mm_pos <= 0 and mm_max_button-1
                      or mm_pos-1
 end
 
 if btnp(⬇️) then
-sfx(56)
+sfx"56"
 mm_pos = (mm_pos+1)%mm_max_button
 end
 
 if btnp(❎) then
-sfx(56)
+sfx"56"
 mm_status = mm_pos+1
 end
 
@@ -126,18 +126,18 @@ end
 function level_menu_update()
 
 if btnp(⬆️) then
-sfx(56)
+sfx"56"
 lm_pos = lm_pos <= 0 and lm_max_button-1
                      or lm_pos-1
 end
 
 if btnp(⬇️) then
-sfx(56)
+sfx"56"
 lm_pos = (lm_pos+1)%lm_max_button
 end
 
 if btnp(❎) then
-sfx(56)
+sfx"56"
 if lm_pos == 1 then 
  set_lvl(1)
 elseif lm_pos == 2 then 
@@ -214,7 +214,7 @@ update_ex_h(hero)
 col = collide(ex_hero,1,is_b,1,crouch)
 if col ~= nil and col.x ~= nil
  then
-sfx(62)
+sfx"62"
 off_points(point_zone,101)
 update_point(col,point_zone,100,
                     save_method)
@@ -239,7 +239,7 @@ if col ~= nil and col.x ~= nil
    update_point(col,heart_arr,68,
                     save_method)
    hero.hp +=1 
-   sfx(63)     
+   sfx"63"     
 end  
 
 --coin
@@ -251,7 +251,7 @@ if col ~= nil and col.x ~= nil
    update_point(col,coin_arr,68,
                     save_method)
    hero.coins +=1
-   sfx(54)      
+   sfx"54"      
 end 
 
 --button zone
@@ -277,7 +277,7 @@ col.y <= hero.sy))
 and not save_form
  then
  hero.hp-=1
- sfx(58)
+ sfx"58"
  save_form = true
 end
 update_save_form()
@@ -291,7 +291,7 @@ col.y <= hero.sy) or
 (col  ~= nil and
 col.x <= hero.sx) 
  then
- sfx(59)
+ sfx"59"
  hero.sy = 0 - (jump_power*1.55)
  jump_s_b = true 
 end
@@ -348,7 +348,7 @@ if(btnp(⬆️)
  and not hero.is_crouch
  and hero.on_flore)
  and coly == nil then
- sfx(55)
+ sfx"55"
  hero.sy -= jump_power
 end
 
@@ -422,7 +422,7 @@ function button_method(zone,i,blk)
 
 if action then
   action = false
-  sfx(61)
+  sfx"61"
   zone[i].is_active = 
            not zone[i].is_active
   chains_method()
@@ -458,7 +458,7 @@ local j_siz
    ~= chains_zone[i].buf_st
   then
   chains_zone[i].ch = 0
-  sfx(60)
+  sfx"60"
   chains_zone[i].buf_st = 
        chains_zone[i].is_active
   end
@@ -744,7 +744,7 @@ if(#pz > 0) then
     pz[i].y < hero.y+16+spike
     and not save_form then
  hero.hp-=1
- sfx(58)
+ sfx"58"
  save_form = true
   end
 end
