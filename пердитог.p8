@@ -1,4 +1,4 @@
-pico-8 cartridge // http://www.pico-8.com
+﻿pico-8 cartridge // http://www.pico-8.com
 version 18
 __lua__
 --init
@@ -12,6 +12,7 @@ hero.is_crouch = false
 hero.coins = 0;
 hero.x = 3*8
 hero.y = 61*8
+d_timer = 0
 movement.x = hero.x
 movement.y = hero.y
 
@@ -214,7 +215,7 @@ update_ex_h(hero)
 col = collide(ex_hero,1,is_b,1,crouch)
 if col ~= nil and col.x ~= nil
  then
-sfx"62"
+sfx(62)
 off_points(point_zone,101)
 update_point(col,point_zone,100,
                     save_method)
@@ -239,7 +240,7 @@ if col ~= nil and col.x ~= nil
    update_point(col,heart_arr,68,
                     save_method)
    hero.hp +=1 
-   sfx"63"     
+   sfx(63)     
 end  
 
 --coin
@@ -251,7 +252,7 @@ if col ~= nil and col.x ~= nil
    update_point(col,coin_arr,68,
                     save_method)
    hero.coins +=1
-   sfx"54"      
+   sfx(54)      
 end 
 
 --button zone
@@ -277,7 +278,7 @@ col.y <= hero.sy))
 and not save_form
  then
  hero.hp-=1
- sfx"58"
+ sfx(58)
  save_form = true
 end
 update_save_form()
@@ -291,7 +292,7 @@ col.y <= hero.sy) or
 (col  ~= nil and
 col.x <= hero.sx) 
  then
- sfx"59"
+ sfx(59)
  hero.sy = 0 - (jump_power*1.55)
  jump_s_b = true 
 end
@@ -314,8 +315,13 @@ if coly ~= nil then
  if coly.y <= hero.sy then
  hero.sy = -2*sgn(hero.sy)
 else
+  hero.y = ((hero.sy ~= 0 and
+  coly.y-9 <= 0) and
+  not hero.is_crouch) and
+       flr(hero.y/8)*8 or hero.y
+  
   hero.sy = coly.y-9 <= 0 and 0 
-                     or hero.sy
+                or coly.y-9
   end
 end
 
@@ -324,11 +330,10 @@ xd = abs(flr((hero.sx-1)/2)) //kostil
 
 
 if colx ~= nil and
-colx.x+(4*xd) <= hero.sx
+colx.x <= hero.sx-(12*xd)
  then
-if (hero.sy == 0  and
- coly.y-9 >= 0) or 
- hero.is_crouch
+if (hero.sy == 0 or 
+ hero.is_crouch)
   then
   hero.sx *= -1
   else
@@ -348,13 +353,13 @@ if(btnp(⬆️)
  and not hero.is_crouch
  and hero.on_flore)
  and coly == nil then
- sfx"55"
+ sfx(55)
  hero.sy -= jump_power
 end
 
 
 
-hero.x += hero.sx*xpow
+hero.x += hero.sx*xpow*dash
 hero.y += hero.sy
 --
 update_ex_h(hero)
@@ -362,30 +367,49 @@ ex_hero.sy = 1
 coly = dist_to_col(ex_hero,1,is_b2,1,1)
 hero.on_flore = hero.sy == 0 and
  coly ~= nil and coly.y-9 >= 0
---
 
+--dash
+update_ex_h(hero)
+ex_hero.sx = sgn(hero.sx)
+col = dist_to_col(ex_hero,1,
+                     is_b2,1,1)
+if dash > 1 and col ~= nil then
+hero.sx *= -1
+xpow = 1
+end
+
+
+dash = 1
+if ((btn(➡️) and hero.sx > 0) or
+ (btn(⬅️) and hero.sx < 0))and
+ not hero.is_crouch then
+dash = d_timer < 10 and 4 or 1
+d_timer += 1
+else
+d_timer = 0
+end
+--
+-- crouch
 update_ex_h(hero)
 ex_hero.sy = -1
 col = dist_to_col(ex_hero,1,
                      is_b2,1,0)
-
-
+hc_p = hero.is_crouch
 hero.is_crouch = false
 if  btn(⬇️) or 
 (col ~= nil and abs(col.y) > 1) then
 hero.is_crouch = true
 end
 
-
-normalize_hero_pos()
+if hc_p and hero.sy == 0 and 
+     hc_p ~= hero.is_crouch then
+hero.y -=8    
 end
 
-function normalize_hero_pos()
-if hero.sy == 0
-and not hero.is_crouch  then
- hero.y = flr(hero.y/8)*8
+--
+
 end
-end
+
 
 function double_jump()
 update_ex_h(hero)
@@ -698,7 +722,7 @@ p = collide(obj,n,is_m,
 xd =flr((obj.sx+1)/2)
 
 if p.x ~= nil and p.y ~= nil then
-result.x= abs(p.x-obj.x)-7-(8*xd)
+result.x= abs(p.x-obj.x)-15//+(1*xd)
 result.y= abs(p.y-obj.y)-7
 else
 result = nil
@@ -966,7 +990,6 @@ frame = 0
 if hero.sy==0 then
 frame = flr(img) % max_frame
 end
-
 
 sspr (hero.is_crouch and
 48 or frame*16,0,
