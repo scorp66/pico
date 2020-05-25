@@ -1073,31 +1073,31 @@ if mm_status == 0 then
 end
 
 function game_over()
-print('game over',hero.x,
-                    hero.y+40,8)
+print('game over',hero.x-14,
+                    hero.y-10,8)
 end
 
 function main_menu()
 print(mm_pos==0 and'❎start'or
- 'start',hero.x,hero.y,
+ 'start',hero.x-16,hero.y,
          mm_pos == 0 and 3 or 7)
 print(mm_pos==1 and'❎about'or
- 'about',hero.x,hero.y+10,
+ 'about',hero.x-16,hero.y+10,
        mm_pos == 1 and 3 or 7)
 print(mm_pos== 2 and'❎levels'or
- 'levels',hero.x,hero.y-10,
+ 'levels',hero.x-16,hero.y-10,
        mm_pos == 2  and 3 or 7)              
 end
 
 function level_menu_draw()
 print(lm_pos==0 and'❎level 1'or
- 'level 1',hero.x,hero.y,
+ 'level 1',hero.x-16,hero.y-10,
          lm_pos == 0 and 3 or 7)
 print(lm_pos==1 and'❎level 2'or
- 'level 2',hero.x,hero.y+10,
+ 'level 2',hero.x-16,hero.y,
        lm_pos == 1 and 3 or 7)
 print(lm_pos==2 and'❎level 3'or
- 'level 3',hero.x,hero.y+20,
+ 'level 3',hero.x-16,hero.y+10,
        lm_pos == 2 and 3 or 7)       
 end
 
