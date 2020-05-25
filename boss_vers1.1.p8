@@ -76,6 +76,7 @@ button_zone = find_point_zone(16)
 chains_zone = find_point_zone(66)
 chains_ex()
 boss_arr = find_point_zone(36)
+boss_arr = normilize(boss_arr)
 boss_ex()
 torch_arr = find_point_zone(48)
 heart_arr = find_point_zone(80)
@@ -818,9 +819,9 @@ end
 --boss
 function boss_ex()
  
- if #boss_arr >= 0 then
+ if #boss_arr > 0 then
  
-  for i=0,#boss_arr do
+  for i=1,#boss_arr do
    mset(boss_arr[i].x,
         boss_arr[i].y,
         68)
@@ -831,7 +832,7 @@ end
 
 
 function update_boss(arr)
- for i = 0,# arr do
+ for i = 1,# arr do
   if (do_damage(arr[i].x,
                 arr[i].y) or
       do_damage(arr[i].x+1,
@@ -844,7 +845,7 @@ function update_boss(arr)
     sfx"58"
     save_form = true
   end
-  
+
   diff_x = hero.x - arr[i].x*8
   diff_y = hero.y - arr[i].y*8
   if(abs(diff_x) >= abs(diff_y)) then
@@ -852,7 +853,7 @@ function update_boss(arr)
   else
    arr[i].y += diff_y/abs(diff_y)/20   
   end
-  
+ 
   
  end 
 end
@@ -868,6 +869,15 @@ function do_damage(x,y)
     return false
   end    
 end
+
+
+function normilize(arr)
+ local temp = {}
+ for i=1,#arr+1 do
+  temp[i] = arr[i-1]
+ end
+ return temp
+end 
 -->8
 --map parser
 function get_sumb_index(
@@ -969,7 +979,7 @@ print(lm_pos==2 and'❎level 3'or
 end
 
 function level_draw() 
---print(flagg, hero.x,hero.y-8)
+--print(boss_arr[1].x, hero.x,hero.y-8)
 map(0,0,0,0,100,100)
 
 if time_damage%2 == 0 then
@@ -1026,9 +1036,9 @@ end
 
 function _draw_boss(arr)
 
-if(#arr >= 0) then
+if(#arr > 0) then
 
- for i=0,#arr do
+ for i=1,#arr do
  
  if my_time%8 == 0 then
   temp_rnd = flr(rnd(3))+1
