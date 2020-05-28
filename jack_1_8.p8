@@ -1,4 +1,4 @@
-pico-8 cartridge // http://www.pico-8.com
+﻿pico-8 cartridge // http://www.pico-8.com
 version 18
 __lua__
 
@@ -11,7 +11,7 @@ max_colide_count = 2
 hero.hp = 3
 hero.is_crouch = false
 hero.coins = 0;
-hero.x = 3*8
+hero.x = 2*8
 hero.y = 61*8
 d_timer = 0
 g_time = 1
@@ -48,12 +48,13 @@ max_frame = 3
 speed = 5
 last = 0
 lov_gr_time = 0
-gr_max_time = 30
+gr_max_time = 70
 
 low_sp_x = 1
 low_sp_y = 1
 
-
+low_g_pow_x = 1.2
+low_g_pow_y = 0.1
 
 torch_arr = {}
 dash_tail_arr = {}
@@ -76,7 +77,7 @@ lm_max_button = 3
 tr_str = ""
 cur_point = 0
 xpow = 1
-
+action = true
 ex_hero = {}
 end
 current_dial = 0
@@ -94,6 +95,7 @@ function level_initialiation()
 point_zone = find_point_zone(1)
 low_grav_zone = find_point_zone(65)
 button_zone = find_point_zone(16) 
+button_ex()
 chains_zone = find_point_zone(66)
 chains_ex()
 boss_arr = find_point_zone(36)
@@ -184,7 +186,6 @@ my_time+=1
 if dash_sg < 20 then
  dash_sg += 0.5
 end 
-
 check_dt_arr()
 if #dash_tail_arr != 0 then
  update_dt_arr()
@@ -279,8 +280,8 @@ low_sp_x = 1
 low_sp_y = 1
 if lov_gr_time > 0 then
 lov_gr_time+=1
-low_sp_x = 0.8
-low_sp_y = 0.002
+low_sp_x = low_g_pow_x
+low_sp_y = low_g_pow_y
 end
 
 --end lvl check
@@ -318,18 +319,18 @@ if col ~= nil and col.x ~= nil
 end 
 
 --button zone
-update_ex_h(hero)
-col = collide(ex_hero,16,is_b,1,crouch)
-if col ~= nil and col.x ~= nil
+if (button_zone[0] ~= nil) then
+n = no_map_cols_n(hero,
+             button_zone,16,0)
+if n ~= nil
  then
-update_point(col,button_zone,84,
-                  button_method)
+button_method(n)
 else
-action = true
+action = -1
 end
 
 update_chains()
-
+end
 --thorns
 update_ex_h(hero)
 col = dist_to_col(ex_hero,2,is_b2,1,crouch)
@@ -519,17 +520,14 @@ function save_method(zone,i,blk)
 end
 
 --button_zone
-function button_method(zone,i,blk)
+function button_method(zone)
 
-if action then
-  action = false
+if action ~= zone+1 then
+  action = zone+1
   sfx"61"
-  zone[i].is_active = 
-           not zone[i].is_active
+  button_zone[zone].is_active = 
+           not button_zone[zone].is_active
   chains_method()
-  mset(zone[i].x,zone[i].y,
-                zone[i].is_active
-                 and blk+1 or blk)
 
 end
 end
@@ -574,7 +572,7 @@ function update_chains()
 local d
 if(chains_zone[0] ~= nil) then
  for i = 0, #chains_zone, 1 do
-
+ 
   if(not chains_zone[i].is_active)
    then
     d = chains_zone[i].d
@@ -623,7 +621,7 @@ function draw_chains(ch_obj,n,
 local ch =  ch_obj.ch
 local dir_c = ch_obj.d
 
-ch_time = ch_time >= 5 and 0 
+ch_time = ch_time >= 1 and 0 
                      or ch_time
 local x = ch_obj.x+(dir_c.x*ch)                  
 local y = ch_obj.y+(dir_c.y*ch)
@@ -666,19 +664,36 @@ chains_zone[i].buf_st = false
 local k = 0
 for j = 0, #button_zone, 1 do
 
-if button_zone[j].x == 
+if button_zone[j].x/8 == 
         chains_zone[i].x then 
 chains_zone[i].b[k] = j
+chains_zone[i].is_active = 
+       button_zone[j].is_active
 k += 1
 end
 
-if button_zone[j].y == 
+if button_zone[j].y/8 == 
         chains_zone[i].y then 
 chains_zone[i].b[k] = j
 k += 1
 end
 
 end
+end
+chains_method()
+end
+end
+
+function button_ex()
+if button_zone[0] ~= nil then
+for i = 0, #button_zone, 1 do
+button_zone[i].is_active = 
+   mget(button_zone[i].x,
+   button_zone[i].y) == 85
+mset(button_zone[i].x,
+   button_zone[i].y,68)
+   button_zone[i].x*=8
+   button_zone[i].y*=8
 end
 end
 end
@@ -902,6 +917,19 @@ return col.x >= obj.x and
     col.y < obj.y+radius+y_param
 
 end
+
+function no_map_cols_n(obj,cols,radius,
+                      y_param)
+
+for i = 0,#cols,1 do
+if no_map_col(obj,cols[i],radius,
+                     y_param) then
+  return i                  
+end
+end
+
+return nil
+end
 -->8
 --웃nemy
 function update_enemy(pz)
@@ -1124,35 +1152,36 @@ if mm_status == 0 then
 end
 
 function game_over()
-print('game over',hero.x-14,
-                    hero.y+10,8)
+print('game over',hero.x,
+                    hero.y+40,8)
 end
 
 function main_menu()
 print(mm_pos==0 and'❎start'or
- 'start',hero.x-16,hero.y,
+ 'start',hero.x+16,hero.y,
          mm_pos == 0 and 3 or 7)
 print(mm_pos==1 and'❎about'or
- 'about',hero.x-16,hero.y+10,
+ 'about',hero.x+16,hero.y+10,
        mm_pos == 1 and 3 or 7)
 print(mm_pos== 2 and'❎levels'or
- 'levels',hero.x-16,hero.y-10,
+ 'levels',hero.x+16,hero.y-10,
        mm_pos == 2  and 3 or 7)              
 end
 
 function level_menu_draw()
 print(lm_pos==0 and'❎level 1'or
- 'level 1',hero.x-16,hero.y-10,
+ 'level 1',hero.x+16,hero.y,
          lm_pos == 0 and 3 or 7)
 print(lm_pos==1 and'❎level 2'or
- 'level 2',hero.x-16,hero.y,
+ 'level 2',hero.x+16,hero.y+10,
        lm_pos == 1 and 3 or 7)
 print(lm_pos==2 and'❎level 3'or
- 'level 3',hero.x-16,hero.y+10,
+ 'level 3',hero.x+16,hero.y+20,
        lm_pos == 2 and 3 or 7)       
 end
 
 function level_draw()
+
 map(0,0,0,0,100,100)
 
 if time_damage%2 == 0 then
@@ -1166,6 +1195,7 @@ end
 draw_hero_coins()
 _draw_hero()
 
+draw_button(84)
 
 draw_hero_hp()
 
@@ -1206,6 +1236,20 @@ end
 
 end
 
+function draw_button(blk)
+if button_zone[0] ~= nil then
+for i = 0, #button_zone, 1 do
+local x = button_zone[i].x
+local y = button_zone[i].y
+spr( button_zone[i].is_active
+            and blk+1 or blk,
+      x,
+      y,1,1,
+      is_b(x+8,y) == 2)
+end
+end
+end
+
 function _draw_boss(arr)
 
 if(#arr > 0) then
@@ -1244,10 +1288,14 @@ if hero.sy==0 then
 frame = flr(img) % max_frame
 end
 draw_dialogue(4,2)
-if lllx ~= nil then
-print(cur.x,
-hero.x-16,
-hero.y-16) end
+//n = no_map_cols_n(hero,button_zone,16,0)
+--local xx = button_zone[1].x
+--local yy = button_zone[1].y
+--n = no_map_cols_n(hero,
+--             button_zone,16,0,n)
+--print( action,
+--hero.x-16,
+--hero.y-16)
 
 if hero.is_crouch then
 
@@ -1405,7 +1453,6 @@ function draw_dash_tail()
   
  end
 end
-
 
 function draw_strength()
  local length = dash_sg/4
