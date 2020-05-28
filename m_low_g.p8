@@ -1,4 +1,4 @@
-pico-8 cartridge // http://www.pico-8.com
+﻿pico-8 cartridge // http://www.pico-8.com
 version 18
 __lua__
 
@@ -21,6 +21,7 @@ max_time_crouch = 40
 movement.x = hero.x
 movement.y = hero.y
 dash = 0
+dash_sg = 20
 levels=
 {
  "64x47 81 68x80 , 81 68x5 66 67 68x4 66 67 68x20 81 68x12 81 68x80 , 81 68x2 65x3 82 83 65x3 68 82 83 68x2 65 68x17 81 68x12 81 68x80 , 81 65x3 68x12 65x2 68x12 99 117 68x2 81 68x12 81 68x80 , 81 65x2 68 81 64x11 68 65x2 68x9 81 68 99 117 68x2 81 68x12 81 68x80 , 81 68 65x2 81 68x23 81 68 99 117 68x2 81 68x10 69 68 81 68x80 , 81 68 65 13 81 68x21 64x8 81 68x12 81 68x80 , 81 65x2 68 81 68 65 68x9 81 68x30 81 68x80 , 81 65 68x3 65 68x4 69 68x5 81 68x5 112x3 68x19 81 64x2 81 68x80 , 81 68x3 101 68x2 81 68x8 81 68x27 81 98x2 81 68x80 , 81 68x6 81 68x4 65 68x3 81 112x5 68x3 65x3 68x16 81 68x2 81 68x80 , 81 64x6 81 68x4 65x3 68x8 65x3 69 68 65x3 68x13 81 68x2 81 68x80 , 81 68x4 81 68x8 65x10 68x7 65x2 68x11 81 68x2 81 68x80 , 81 68 118 102 68 81 68x6 65 68x19 65 68x11 81 66 67 81 68x80 , 81 68 118 102 68 81 68x2 112x4 68x32 81 82 83 81 68x80 , 81 68 118 102 68 81 68x2 64x4 68x14 80 68x3 64x2 68x3 28 68x8 81 68 13 81 68x80 , 81 68x4 81 68x7 112x3 64x3 81 68x3 81 64x8 68x6 28 68x5 81 68x2 81 68x80 , 81 68x4 81 68x13 81 68x3 81 68x9 28 68x10 81 68x2 81 68x80 , 81 68x4 81 68x13 81 68 69 68 81 68x9 112x3 68x3 28 65 68x3 81 68x2 81 68x80 , 81 68x4 81 68 65x4 68x8 81 68x3 81 68x16 65x2 68x2 81 68 65 81 68x80 , 81 68x4 81 68 65 68x2 65x2 68x7 81 80x3 81 68x13 112x3 68 65x2 68 81 65x2 81 68x80 , 81 68x4 81 65x2 68x3 65 68x7 81 64x3 81 68x13 64x3 68x2 65 68x2 65 68 81 68x80 , 81 68x4 81 65 68 81 68x2 65 68x9 98 68x18 65x6 68 81 68x80 , 81 68x4 81 65 68 81 68x29 65x3 68x6 81 68x80 , 81 68x4 81 65x2 81 68x5 65x3 68x20 65x2 68x2 81 64x5 81 68x80 , 81 68x4 81 68 65 81 68x3 69 65x2 68x3 69 68 65 68x3 69 68x3 69 68x8 65 68x3 81 98x5 81 68x80 , 81 65x2 68x2 81 68 65 81 68x14 65x2 68x11 81 64x4 81 68x5 81 68x80 , 81 68 65 101 68x2 65x2 81 68x7 80 68x9 80 68x10 98x5 68x5 81 68x80 , 81 68x2 65x4 68 81 68x7 81 68x4 80 68x4 81 68x4 80 68x4 81 80x10 81 68x80 , 81 64x7 81 64x38 81 68x80 , 68x128 , 68x128 ",
@@ -181,6 +182,9 @@ end
 function game_update()
 key_control()
 my_time+=1
+if dash_sg < 20 then
+ dash_sg += 0.5
+end 
 
 check_dt_arr()
 if #dash_tail_arr != 0 then
@@ -443,8 +447,11 @@ dash = 1
 if ((btn(➡️) and hero.sx > 0) or
  (btn(⬅️) and hero.sx < 0))and
  not hero.is_crouch then
-dash = d_timer < 10 and 4 or 1
+dash = d_timer < dash_sg and 4 or 1
 d_timer += 1
+if dash_sg > 0 then  
+ dash_sg -= 2 
+end
 else
 d_timer = 0
 end
@@ -1200,6 +1207,7 @@ draw_arr(coin_arr,5,28,4)
 draw_dash_tail()
 _draw_enemy(enemy_arr)
 _draw_boss(boss_arr)
+draw_strength()
 end
 
 function _draw_enemy(arr)
@@ -1443,6 +1451,14 @@ function draw_dash_tail()
    end    
   end
   
+ end
+end
+
+function draw_strength()
+ local length = dash_sg/4
+ for i = 0,length do
+  spr(32, hero.x-56 + i*5,
+                   hero.y-40)  
  end
 end
 __gfx__
