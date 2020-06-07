@@ -1,4 +1,4 @@
-﻿pico-8 cartridge // http://www.pico-8.com
+pico-8 cartridge // http://www.pico-8.com
 version 18
 __lua__
 
@@ -75,7 +75,6 @@ mm_max_button = 3
 lm_pos = 0
 lm_max_button = 3
 tr_str = ""
-cur_point = 0
 xpow = 1
 action = true
 ex_hero = {}
@@ -216,9 +215,10 @@ go_init()
 go_time = time()-go_st_time
 if go_time == 3 then
 hero.hp = 3
-hero.x = point_zone[cur_point].x*8
+hero.x = point_zone
+           [point_zone.last].x*8
 hero.y = (point_zone[
-                cur_point].y-1)*8
+         point_zone.last].y-1)*8
 mm_status = 0
 go_start = 0
 end
@@ -515,7 +515,7 @@ end
 --save_zone★
 function save_method(zone,i,blk)
   zone[i].is_active = true
-  
+  zone.last = i
   mset(zone[i].x,zone[i].y,blk)
 end
 
@@ -1102,6 +1102,7 @@ end
 
 function find_point_zone(flag)
 local result = {}
+result.last = 0
 m = 0
 for i = 0, 127,1 do
 
@@ -1293,7 +1294,7 @@ draw_dialogue(4,2)
 --local yy = button_zone[1].y
 --n = no_map_cols_n(hero,
 --             button_zone,16,0,n)
---print( action,
+--print( point_zone.last,
 --hero.x-16,
 --hero.y-16)
 
