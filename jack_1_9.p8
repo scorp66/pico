@@ -13,9 +13,10 @@ hero.is_crouch = false
 hero.coins = 0;
 hero.x = 2*8
 hero.y = 61*8
+skil_rest = 0
 d_timer = 0
 g_time = 1
-is_timer_crouch = false
+
 time_crouch = 0
 max_time_crouch = 40
 movement.x = hero.x
@@ -190,6 +191,7 @@ end
 if btnp(❎) then
 sfx"56"
 set_lvl(lm_pos)
+current_level = lm_pos+1
 mm_status = 1
 --we need all levels in order not to get on the lvl2 after set lvl 
 end
@@ -199,6 +201,7 @@ function game_update()
 key_control()
 my_time+=1
 
+skil_rest = current_level-1
 if dash_sg < 20 then
  dash_sg += 0.5
 end 
@@ -462,7 +465,8 @@ end
 
 dash = 1
 if ((btn(➡️) and hero.sx > 0) or
- (btn(⬅️) and hero.sx < 0))and
+ (btn(⬅️) and hero.sx < 0))
+ and skil_rest > 2 and
  not hero.is_crouch then
 dash = d_timer < dash_sg and 4 or 1
 d_timer += 1
@@ -480,19 +484,18 @@ col = dist_to_col(ex_hero,1,
                      is_b2,1,0)
 hc_p = hero.is_crouch
 hero.is_crouch = false
-if (g_time>0 and btn(⬇️)) or 
+if (g_time>0 and btn(⬇️) 
+and skil_rest > 1) or 
 (col ~= nil and abs(col.y) > 1) then
+dash_sg = dash_sg > 0 
+             and dash_sg-1 or 0
 
-time_crouch += 1
-
-if (is_timer_crouch or 
-time_crouch < max_time_crouch)or 
+if (dash_sg > 0)or 
 (col ~= nil and abs(col.y) > 1)
  then
 hero.is_crouch = true
 end
-else 
-time_crouch = 0
+
 end
 
 
@@ -511,7 +514,7 @@ update_ex_h(hero)
 ex_hero.sy = -1
 coly = dist_to_col(ex_hero,1,is_b2,1,1)
 if btnp(⬆️)  and hero.sy > 0 and
-coly == nil 
+coly == nil and skil_rest > 0
 and not hero.is_crouch
 then
 hero.sy -= jump_power*1.25
@@ -1330,9 +1333,9 @@ draw_dialogue(4,2)
 --local yy = button_zone[1].y
 --n = no_map_cols_n(hero,
 --             button_zone,16,0,n)
---print( point_zone.last,
---hero.x-16,
---hero.y-16)
+print( current_level,
+hero.x-16,
+hero.y-16)
 
 if hero.is_crouch then
 
@@ -1493,9 +1496,11 @@ end
 
 function draw_strength()
  local length = dash_sg/4
- for i = 0,length do
-  spr(32, hero.x-56 + i*5,
-                   hero.y-40)  
+ if( skil_rest > 1) then
+  for i = 0,length do
+   spr(32, hero.x-56 + i*5,
+                    hero.y-40)  
+  end
  end
 end
 __gfx__
