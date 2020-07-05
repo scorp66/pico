@@ -334,7 +334,6 @@ function update_fboss_fir1(arr)
                 
   if(abs(diff_x) >= 5) then
    arr[i].x += diff_x/abs(diff_x)/3
-   arr[i].y += diff_y/abs(diff_y)/12 
   else
    arr[i].y += diff_y/abs(diff_y)/4   
   end              
