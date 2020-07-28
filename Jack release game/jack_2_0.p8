@@ -1651,7 +1651,7 @@ hero.y-16)
 end
  if no_map_col(hero,dial_arr[i],
                     32,0) then
- print("press ❎", hero.x,hero.y-8)                   
+ print("press ❎", hero.x,hero.y-24)                   
   if (btnp(5))
    then
  
