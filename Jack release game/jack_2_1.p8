@@ -3,7 +3,7 @@ version 18
 __lua__
 function _init()
 hero = {}
-dbg = true
+dbg = false
 maxlvc = 0
 movement = {}
 col = {} 
