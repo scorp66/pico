@@ -67,9 +67,9 @@ levels=
  
  "81 , 81 68x33 81 , 81 68x5 66 67 68x4 66 67 68x2 65 68x17 81 , 81 68x5 82 83 68x4 82 83 68x2 65x2 68x12 69 99 117 69 81 , 81 65 68x2 64x12 68 65x2 68x9 81 68x2 99 117 68 81 , 81 65x3 81 39x3 94 95 39x3 78 79 39 68x12 81 68x2 99 117 68 81 , 81 68 65 68 81 39x8 94 95 39 68x10 64x9 , 81 65x2 68 81 39x11 81 68x8 , 81 68 65 68 81 39x11 81 68x5 112x3 , 81 68 65x2 81 39x11 81 68x5 39x3 , 81 68 65 68 81 39x11 64 112x5 39x3 , 81 68 65 68 81 39x20 , 81 68 65x2 81 39x20 , 81 65x3 81 39x20 , 81 68 65 68 81 39x20 , 81 65 68 65 68 39x19 78 79 78 79 39x16 81 64x2 81 , 81 68x2 65 101 39x2 81 39x16 94 95 94 95 39x16 81 98x2 81 , 81 68x4 39x2 81 39x14 78 79 78 79 39x18 81 28x2 81 , 81 64x7 39x8 78 79 78 79 78 79 94 95 94 95 39x18 81 68x2 81 , 81 68x4 81 39x10 94 95 94 95 94 95 39x22 81 68x2 81 , 81 68 118 102 68 81 39x38 81 66 67 81 , 81 68 118 102 68 81 39x2 112x4 39x32 81 82 83 81 , 81 68 118 102 68 81 39x2 64x4 39x14 75 39x3 64x2 39x12 81 68x2 81 , 81 68x4 81 39x7 112x3 64x4 39x3 64x9 39x5 78 79 78 79 39x3 81 68x2 81 , 81 68x4 81 39x7 78 79 78 79 94 95 81 39x3 81 39x13 94 95 94 95 78 79 78 81 68x2 81 , 81 68x4 81 39x7 94 95 94 95 39x2 81 39x3 81 39x9 112x3 39x5 94 95 94 81 68x2 81 , 81 68x4 81 39x13 81 39x3 81 39x20 81 68 65 81 , 81 68x4 81 39x13 81 75x3 81 39x10 78 79 78 112x2 39x5 81 65x2 81 , 81 68x4 81 39x13 64x5 39x10 94 95 94 64x2 39x5 68 65 68 81 , 81 68x4 81 68x2 81 39x12 91 39x22 65x2 68 81 , 81 68x4 81 68x2 81 39x35 68x3 81 , 81 68x4 81 68x2 81 39x32 64x6 81 , 81 68x4 81 68 65 81 39x32 81 91x5 81 , 81 65x2 68x2 81 68 65 81 39x10 74 39x3 78 79 39x11 64x6 39x5 81 , 81 68 65 101 68x2 65x2 81 39x2 74 39x4 75 39x6 94 95 39 75 39x10 91x5 39x5 81 , 81 68x2 65x4 68 81 39x5 78 79 81 39x2 78 79 75 39x4 81 39x4 75 39x4 81 75x10 81 , 64x48 ",
  
- "81 39x23 81 39x7 81 39x7 81 39x7 81 39x13 81 , 81 39x23 81 39x3 74 39x3 81 39 78 79 39x4 81 39x4 74 39x2 81 39x13 81 , 81 39x4 78 79 39x3 74 39x3 74 39x2 78 79 39x5 81 39x7 81 39 94 95 39 74 39x2 81 39x7 81 39x9 74 39x3 81 , 81 39x2 74 39 94 95 39x10 94 68 69 68 39 74 39 81 68x3 69 68x3 81 39x7 81 68x7 81 39 78 79 39 74 39x8 81 , 81 78 79 39x4 74 39x3 74 39x6 69 68 69 39x3 81 65x2 68x3 65x2 81 39x2 74 39x4 81 68x7 81 39 94 95 39x8 74 39 81 , 81 94 95 39x11 69 86 68 39 69 119 69 39x3 81 68x2 28 65 68 65 68 81 39x7 81 68x7 81 39x13 81 , 81 68x6 39x7 68x3 39 81 64 81 39x3 68x4 65x2 68x3 39x7 68x9 39 74 39x3 90 39x7 81 , 81 68 69 118 102 69 68 65 68x3 64x48 39x3 81 , 81 68x2 118 102 68 65x2 68x3 81 68x5 81 68x40 81 39x3 81 , 81 68x2 118 102 68x8 28 13 28 68 81 68x40 81 39x3 81 , 64x59 39x3 81 , 68x23 81 68x11 81 68x4 81 39x5 81 68x6 81 39x8 81 , 68x23 81 68 65x2 68x5 65x2 68 81 68 65x2 68 81 39 74 78 79 39 81 68x3 65x2 68 81 39x4 78 79 39x2 81 , 68x23 81 68x3 28 68 69 68x3 65 68 81 65 69 68 65 81 39x2 94 95 39 81 65x2 69 68 65 68 81 39x2 74 39 94 95 39x2 81 , 68x23 81 68 65 68x5 65x2 68x2 81 65 68x3 81 39x3 74 39 81 65 68x5 81 39x2 78 79 39x4 81 , 68x23 81 65x2 68x3 65x2 68 65 33 68 81 68x2 28 68 81 39x5 81 68x3 28 68x2 81 39x2 94 95 39 74 39x2 81 , 68x23 81 68 65x2 68x9 65 68x4 39x5 68x8 39x8 81 , 68x23 81 68x3 64x75 , 68x23 81 68x4 65 68x3 81 68x6 81 68x6 81 68x14 65x2 81 68x5 65x3 68 81 68x7 81 68 65x2 68x4 81 68x4 65x2 68x5 81 , 68x23 81 68x5 65x2 68 81 68x3 65x3 81 68x2 65x3 68 81 68 65x2 68x2 65 68 65x2 68x5 65 68 81 68x9 81 65 68x3 65x2 68 81 65x4 68x3 81 68x2 65x2 68x7 81 , 68x23 81 65x2 68x2 69 68x3 81 68 65x2 69 68x2 81 68 65x2 69 68x2 81 68x3 69 68 65 68 69x2 68 65x2 68 69 68x2 81 68x4 28 68x2 65 68 81 68x3 28 68 65 68 81 68x3 28 68x3 81 68x4 69 68x2 28 68x3 81 , 68x23 81 65 68x7 81 68x6 81 68x6 81 68 65 68x4 69 68x2 69 68 65 68x4 81 68 65x2 68x6 81 68x6 65 81 68x5 65x2 81 68 65 68x7 65x2 81 , 68x23 81 68x4 65 68x3 98 68x2 28 68x2 65 98 68x2 28 68x3 98 68x3 13 68x3 69x2 68x2 65x3 68x2 98 68 65x2 68x3 65 68x2 98 68 65x2 68x4 98 68x3 80 68x3 98 68x3 13 68x3 65x2 68 65 81 , 68x23 81 68x8 65x2 68x21 86 68x8 65x2 68x2 80 68 65x2 68x5 80 68x7 81 68x15 81 , 68x23 64x75 68x3 81 , 64x6 68x91 81 68x2 65 81 , 81 65x2 68x2 81 68x91 81 65 68x2 81 , 81 69 65x2 69 81 68x73 64x18 81 68x2 65 81 , 81 68 99 117 68 81 64x26 68x5 52 64x8 68x2 64x3 68x6 64x22 68x2 65x2 68x2 81 68x2 65x2 68x2 81x2 65x3 68x3 65 81 , 81 65 99 117 65x2 68x2 13 68 65x2 68 98 68x4 98 68x4 98 68x2 65x2 68 65 68x2 64x6 68x3 65x2 68x3 64x2 68x3 64x6 68x2 65x2 68 65 68x3 98x3 68 65x2 68 65 68x4 81 68x6 98 68x2 65 68x3 98x2 68x2 65 68 65 68x2 81 , 81 68 99 117 68x7 65 68x3 65 68x3 65 68 65x2 68x10 65 68x2 13 68x2 65x2 68x4 65 68x2 65 86 65x2 68x2 65x2 68x7 65 68x7 65x3 68x5 65 68x2 65 68x4 65x2 68x8 65 68x3 81 , 64x102 " ,
+ "81 39x23 81 39x7 81 39x7 81 39x7 81 39x13 81 , 81 39x23 81 39x3 74 39x3 81 39 78 79 39x4 81 39x4 74 39x2 81 39x13 81 , 81 39x4 78 79 39x3 74 39x3 74 39x2 78 79 39x5 81 39x7 81 39 94 95 39 74 39x2 81 39x7 81 39x9 74 39x3 81 , 81 39x2 74 39 94 95 39x10 94 68 69 68 39 74 39 81 68x3 69 68x3 81 39x7 81 68x7 81 39 78 79 39 74 39x8 81 , 81 78 79 39x4 74 39x3 74 39x6 69 68 69 39x3 81 65x2 68x3 65x2 81 39x2 74 39x4 81 68x7 81 39 94 95 39x8 74 39 81 , 81 94 95 39x11 69 86 68 39 69 119 69 39x3 81 68x2 28 65 68 65 68 81 39x7 81 68x7 81 39x13 81 , 81 68x6 39x7 68x3 39 81 64 81 39x3 68x4 65x2 68x3 39x7 68x9 39 74 39x3 90 39x7 81 , 81 68 69 118 102 69 68 65 68x3 64x48 39x3 81 , 81 68x2 118 102 101 65x2 68x3 81 68x5 81 68x40 81 39x3 81 , 81 68x2 118 102 68x8 28 13 28 68 81 68x40 81 39x3 81 , 64x59 39x3 81 , 68x23 81 68x11 81 68x4 81 39x5 81 68x6 81 39x8 81 , 68x23 81 68 65x2 68x5 65x2 68 81 68 65x2 68 81 39 74 78 79 39 81 68x3 65x2 68 81 39x4 78 79 39x2 81 , 68x23 81 68x3 28 68 69 68x3 65 68 81 65 69 68 65 81 39x2 94 95 39 81 65x2 69 68 65 68 81 39x2 74 39 94 95 39x2 81 , 68x23 81 68 65 68x5 65x2 68x2 81 65 68x3 81 39x3 74 39 81 65 68x5 81 39x2 78 79 39x4 81 , 68x23 81 65x2 68x3 65x2 68 65 33 68 81 68x2 28 68 81 39x5 81 68x3 28 68x2 81 39x2 94 95 39 74 39x2 81 , 68x23 81 68 65x2 68x9 65 68x4 39x5 68x8 39x8 81 , 68x23 81 68x3 64x75 , 68x23 81 68x4 65 68x3 81 68x6 81 68x6 81 68x14 65x2 81 68x5 65x3 68 81 68x7 81 68 65x2 68x4 81 68x4 65x2 68x5 81 , 68x23 81 68x5 65x2 68 81 68x3 65x3 81 68x2 65x3 68 81 68 65x2 68x2 65 68 65x2 68x5 65 68 81 68x9 81 65 68x3 65x2 68 81 65x4 68x3 81 68x2 65x2 68x7 81 , 68x23 81 65x2 68x2 69 68x3 81 68 65x2 69 68x2 81 68 65x2 69 68x2 81 68x3 69 68 65 68 69x2 68 65x2 68 69 68x2 81 68x4 28 68x2 65 68 81 68x3 28 68 65 68 81 68x3 28 68x3 81 68x4 69 68x2 28 68x3 81 , 68x23 81 65 68x7 81 68x6 81 68x6 81 68 65 68x4 69 68x2 69 68 65 68x4 81 68 65x2 68x6 81 68x6 65 81 68x5 65x2 81 68 65 68x7 65x2 81 , 68x23 81 68x4 65 68x3 98 68x2 28 68x2 65 98 68x2 28 68x3 98 68x3 13 68x3 69x2 68x2 65x3 68x2 98 68 65x2 68x3 65 68x2 98 68 65x2 68x4 98 68x3 80 68x3 98 68x3 13 68x3 65x2 68 65 81 , 68x23 81 68x8 65x2 68x21 86 68x8 65x2 68x2 80 68 65x2 68x5 80 68x7 81 68x15 81 , 68x23 64x75 68x3 81 , 64x6 68x91 81 68x2 65 81 , 81 65x2 68x2 81 68x91 81 65 68x2 81 , 81 69 65x2 69 81 68x73 64x18 81 68x2 65 81 , 81 68 99 117 68 81 64x26 68x5 52 64x8 68x2 64x3 68x6 64x22 68x2 65x2 68x2 81 68x2 65x2 68x2 81x2 65x3 68x3 65 81 , 81 65 99 117 65x2 68x2 13 68 65x2 68 98 68x4 98 68x4 98 68x2 65x2 68 65 68x2 64x6 68x3 65x2 68x3 64x2 68x3 64x6 68x2 65x2 68 65 68x3 98x3 68 65x2 68 65 68x4 81 68x6 98 68x2 65 68x3 98x2 68x2 65 68 101 68x2 81 , 81 68 99 117 68x7 65 68x3 65 68x3 65 68 65x2 68x10 65 68x2 13 68x2 65x2 68x4 65 68x2 65 86 65x2 68x2 65x2 68x7 65 68x7 65x3 68x5 65 68x2 65 68x4 65x2 68x8 65 68x3 81 , 64x102 " ,
  
- "0x18 64x16 , 81 64x4 81 64x12 81 28 68x12 28 81 64x14 , 81 68x4 81 98x12 81 28 68x12 28 81 68x13 81 , 81 28x2 13 28 81 68x12 81 28 68x11 13 28 81 68x13 81 , 81 68x4 81 68x12 81 64x4 68 33 68x4 64x4 81 68x13 81 , 81 68x4 81 68x15 98 81 68x6 81 98x2 68x4 101 68x2 81 68x7 81 , 81 64x2 68x2 81 84 68x32 81 68x7 81 , 81 68x4 81 96 68x11 64x26 81 68x2 81 , 81 68x4 81 68x12 81 28 68x24 81 68x2 81 , 81 68x4 81 68x12 81 28 68x24 81 68x2 81 , 81 68x4 81 68x12 81 68x28 81 , 81 68x4 81 68x4 99 117 68x6 81 28 68x27 81 , 81 64x2 68x2 81 68x4 99 117 68x6 81 64x5 81 68x22 81 , 81 68x4 81 68x4 99 117 68x6 81 68x5 81 64x3 68x13 81 68x5 81 , 81 68x4 81 64x12 81 68x14 52 64x10 81 68x2 81 , 81 68x4 81 98x12 81 68x25 81 80x2 81 , 81 68x4 81 68x12 81 68x25 81 64x2 81 , 81 68x4 81 68x12 81 68x10 112x3 68x15 81 , 81 68x4 81 68x23 64x3 68x14 13 81 , 81 68x3 112 81 68x16 81 68x9 80 68x14 81 , 81 68x9 65x2 68x4 64x2 81 68x2 52 81 64x6 68x3 64x5 68x10 81 , 81 68x10 65x2 68x5 81 68x24 64 68x3 81 , 81 68x7 65x6 68x4 81 68x21 64x4 68x3 81 , 81 68x5 65x2 68x3 65x2 68 81 68x3 81 68x28 81 , 81 68x5 65 68x4 65 68x2 81 68x3 81 64x5 81 68x22 81 , 81 64x5 68x3 64x5 81 68 101 68x2 98x2 68x2 13 81 68x22 81 , 81 68x8 81 68x14 81 68x4 48 68x3 28 68x4 81 68x8 81 , 81 68x8 81 68x3 65x2 64x32 81 , 81 65 68x7 81 68 65x2 68x3 65 68x27 65 68x2 81 , 81 68x6 112x2 81 68 65 68x4 65x2 68x4 65 68x4 65 68x16 65 68x2 81 , 81 68x8 81 68x37 81 , 81 68x8 81 68x11 66 67 68x23 65 81 , 81 68x4 64x4 81 68x8 65x2 68 82 83 68x7 65 68x14 65 68 81 , 81 68x46 81 , 81 68x12 64x6 68x6 64 81 68x20 81 , 81 68x12 65x2 68x3 52 64x6 68 81 68x20 81 , 81 68x4 65 68x5 65x2 68x3 65 68x5 65x2 68x2 81 65 68x6 65 68x9 65 68x2 81 , 81 68x4 65x2 68x4 65 68x4 65x2 68x4 65 68 28 68 81 52 64x5 81 68x5 101 68x4 65 68x2 81 , 81 68x25 81 68x6 81 68x13 81 , 64 112x3 64x39 81 68x3 81 , 81 68x11 81 68x30 81 68x3 81 , 81 68x8 65 68x2 81 68x4 28 68x15 29 68x9 81 68x3 81 , 81 68x8 65 68x2 81 68x9 33 68x20 81 68x3 81 , 81 68x7 65x3 68 81 68 65 68x7 34 68 65x2 68x9 65x2 68x4 33 68 81 68x3 81 , 81 68x8 65 68x37 81 , 81 68x4 64x42 81 , 81 68x46 81 , 81 68x11 65 68x3 65 68x5 65x2 68x3 65 68x16 65 68x2 81 , 81 68x6 65 68x8 65x2 68 66 67 68 65 68x4 65x2 68x6 65 68x8 65 68x2 81 , 81 68x15 69 68x2 82 83 68x2 69 68x7 69 68x2 65x3 68x2 69 68x4 118 102 68 81 , 81 68x7 13 68x26 65 68x6 101 68 118 102 68 81 , 81 68x11 81 48x2 68x13 81 48 68x5 65 68x2 81 68x2 65 68x2 118 102 68 81 , 81 64 112x3 64x42 81 "
+ "0x18 64x16 , 81 64x4 81 64x12 81 28 68x12 28 81 64x14 , 81 68x4 81 98x12 81 28 68x12 28 81 68x13 81 , 81 28x2 13 28 81 68x12 81 28 68x11 13 28 81 68x13 81 , 81 68x4 81 68x12 81 64x4 68 33 68x4 64x4 81 68x13 81 , 81 68x4 81 68x15 98 81 68x6 81 98x2 68x4 101 68x2 81 68x7 81 , 81 64x2 68x2 81 84 68x32 81 68x7 81 , 81 68x4 81 96 68x11 64x26 81 68x2 81 , 81 68x4 81 68x12 81 28 68x24 81 68x2 81 , 81 68x4 81 68x12 81 28 68x24 81 68x2 81 , 81 68x4 81 68x12 81 68x28 81 , 81 68x4 81 68x4 99 117 68x6 81 28 68x27 81 , 81 64x2 68x2 81 68x4 99 117 68x6 81 64x5 81 68x22 81 , 81 68x4 81 68x4 99 117 68x6 81 68x5 81 64x3 68x13 81 68x5 81 , 81 68x4 81 64x12 81 68x14 52 64x10 81 68x2 81 , 81 68x4 81 98x12 81 68x25 81 80x2 81 , 81 68x4 81 68x12 81 68x25 81 64x2 81 , 81 68x4 81 68x12 81 68x10 112x3 68x15 81 , 81 68x4 81 68x23 64x3 68x14 13 81 , 81 68x3 112 81 68x16 81 68x9 80 68x14 81 , 81 68x9 65x2 68x4 64x2 81 68x2 52 81 64x6 68x3 64x5 68x10 81 , 81 68x10 65x2 68x5 81 68x24 64 68x3 81 , 81 68x7 65x6 68x4 81 68x21 64x4 68x3 81 , 81 68x5 65x2 68x3 65x2 68 81 68x3 81 68x28 81 , 81 68x5 65 68x4 65 68x2 81 68x3 81 64x5 81 68x22 81 , 81 64x5 68x3 64x5 81 68 101 68x2 98x2 68x2 13 81 68x22 81 , 81 68x8 81 68x14 81 68x4 48 68x3 28 68x4 81 68x8 81 , 81 68x8 81 68x3 65x2 64x32 81 , 81 65 68x7 81 68 65x2 68x3 65 68x27 65 68x2 81 , 81 68x6 112x2 81 68 65 68x4 65x2 68x4 65 68x4 65 68x16 65 68x2 81 , 81 68x8 81 68x37 81 , 81 68x8 81 68x11 66 67 68x23 65 81 , 81 68x4 64x4 81 68x8 65x2 68 82 83 68x7 65 68x14 65 68 81 , 81 68x46 81 , 81 68x12 64x6 68x6 64 81 68x20 81 , 81 68x12 65x2 68x3 52 64x6 68 81 68x20 81 , 81 68x4 65 68x5 65x2 68x3 65 68x5 65x2 68x2 81 65 68x6 65 68x9 65 68x2 81 , 81 68x4 65x2 68x4 65 68x4 65x2 68x4 65 68 28 68 81 52 64x5 81 68x5 101 68x4 65 68x2 81 , 81 68x25 81 68x6 81 68x13 81 , 64 112x3 64x39 81 68x3 81 , 81 64x11 81 68x30 81 68x3 81 , 81 68x8 65 68x2 81 68x4 28 68x15 29 68x9 81 68x3 81 , 81 68x8 65 68x2 81 68x9 33 68x20 81 68x3 81 , 81 68x7 65x3 68 81 68 65 68x7 34 68 65x2 68x9 65x2 68x4 33 68 81 68x3 81 , 81 68x8 65 68x37 81 , 81 68x3 64x43 81 , 81 68x46 81 , 81 68x11 65 68x3 65 68x5 65x2 68x3 65 68x16 65 68x2 81 , 81 68x6 65 68x8 65x2 68 66 67 68 65 68x4 65x2 68x6 65 68x8 65 68x2 81 , 81 68x15 69 68x2 82 83 68x2 69 68x7 69 68x2 65x3 68x2 69 68x4 118 102 68 81 , 81 68x7 13 68x26 65 68x6 101 68 118 102 68 81 , 81 68x11 81 48x2 68x13 81 48 68x5 65 68x2 81 68x2 65 68x2 118 102 68 81 , 81 112x2 64x44 81 "
  ,
  "64x76 , 81 68x38 65x2 68x4 65 68x25 65x2 68 65 81 , 81 68 65x2 68x6 65 68x8 65x2 68x4 65x2 68x11 65x3 68x7 65x2 68x8 65x2 68x12 65x3 81 , 81 65x5 68x5 65x3 68x4 65 68 65x3 68x3 65x2 68x9 65 68x9 65 68x9 65 68x7 65 68x9 81 , 81 68x12 65 69 68x5 69 65 68x5 65 68x5 69 68x9 69 68x4 65x2 68 69 68x2 65x3 68x2 69 68x4 65 68x3 69 68x3 13 68x2 81 , 81 68x6 69 118 102 69 68x4 69 68x3 69 68x13 65 68x3 65 68x26 65x3 68x8 81 68x52 , 81 68x7 118 102 68x2 86 68x3 69 103 69 68x11 65x4 68x7 65x3 68x22 65 68x8 81 68x52 , 81 68x7 118 102 68x6 81 64 81 68x6 80x4 68x8 80x4 68x5 80x4 68x4 80x4 68x3 80x4 68x9 65 81 68x52 , 64x71 68 65 68 65 81 68x52 , 68x70 81 68 65x2 68 81 68x52 , 68x70 81 68x2 69 68 81 68x52 , 68x70 81 68x4 81 68x52 , 64x71 68x3 65 81 68x52 , 81 68x2 65x2 68x5 81 68 65x2 68x4 65x3 68x5 81 68x7 81 65 68x6 81 68x2 65 68x3 98x3 68x3 98x3 65 68x3 98x3 68x9 65 81 68x52 , 81 68 65x2 68x6 81 68 65 68 65 68x5 65 68x5 81 68x5 65x2 81 68 65 68 69 68x3 81 68 65x4 68x10 65 68x7 65 68x7 65 81 68x52 , 81 65 68x4 65x2 68x2 81 68 65 69 65 68x3 69 68 65 46 68 69 68x2 81 68x3 69 68 65 68 81 68x7 81 68 65 68x12 65x2 68x4 65 68x2 65 68x5 65 68x2 81 68x52 , 81 65 68 13 68 69 68 65 68x2 81 68x10 65 68x4 81 68x7 81 68 69 65x2 68 69 68 81 68x3 69 68x6 69 68 65 68x4 69 68x2 65x2 68x3 69 68x3 65 68x2 81 68x52 , 81 68x5 65x2 68x2 81 68x11 65x3 68 81 68 65 68 13 68x3 81 68x3 65 68x3 81 68x8 65x2 68x22 81 68x52 , 81 68x7 65 68 98 68x4 80x2 68x3 80x2 68x4 98 68 65x2 68x4 98 68x3 80 68x3 98 68 65 68x4 80x3 65 68x2 80x3 68x4 80x3 68x8 65x2 81 68x52 , 81 68x10 65x2 68x2 81x2 68x3 81x2 68x8 65x3 68x5 81 68x4 65x2 68x4 81x3 65x2 68 81x3 68x4 81x3 68x9 65 81 68x52 , 81 68x4 64x71 68x52 , 81 68 65 68x2 81 68x122 , 81 68 65 69 68 81 68x83 64x30 68x9 , 81 68x4 81 68x79 64x4 68 65x2 68x5 65 68x21 64x2 68x7 , 81 68x2 65 68 64x80 68 65 68x4 65x2 68x14 65x3 68x4 65 68 65x2 68x3 64x7 , 81 68 65 68x15 65x2 68x12 65x2 68x16 65 68x2 65 68x8 65 68 65x2 68x2 81 68x16 65x2 68x4 69 68x8 69 65 68x7 65 68 69 68x3 65x2 68x7 65 68x2 81 , 81 65x3 68x15 65x2 68x9 65x2 68x17 65 68x3 65x2 68x9 69 68 69 68 81 68x6 65x2 68x15 65x2 68x4 65x3 68x5 65 68x8 65 68x4 65x2 68x3 65x2 81 , 81 68x2 65 68 65 68x3 69 68 65 68x4 65x4 68 69 68x24 65x2 68 65 68x9 65x2 68x6 65 81 68x4 65x4 68x6 69 68x8 65 68x13 65x2 68x13 65 68x4 65 81 , 81 68x4 65x3 68 65x4 68x10 65 68x16 65 68x15 65x2 68 65 68x3 28 13 28 13 28 81 68x4 65x5 68x5 65x4 68x20 65x2 68x13 69 99 117 69 68 81 , 81 68 65 68x4 65 68x4 65x2 68x9 65x2 68x7 69 68x6 65x4 68x20 64x6 68x8 69 68x7 65 68x3 64x4 68x3 65 68 64x5 68x6 64x5 68x4 13x3 68x2 99 117 68x2 81 , 81 68 65x2 68x20 65 68x8 65 68x3 65x7 68x51 65x2 68x5 65 68x20 99 117 65 68 81 , 64x12 68x6 64x8 80x4 68x10 69 68 65x2 68x8 65x2 68x2 80x4 68x11 69 68x10 64x3 68x10 65 68x5 65x2 68x14 64x11 , 68x11 81 65 68x2 65 68x2 81 68x7 64x4 68x22 65 68x3 64x4 68x9 65x3 68x22 65 68x22 81 68x10 , 68x11 81 68x3 65x2 68 81 68x11 64x3 80x5 68x7 65x2 68x6 65x2 68x8 65 68x5 65 68x5 64x4 68 65 68x7 65 68x18 65x2 68 65x2 68x4 65 81 68x10 , 68x11 81 68x4 65x2 81 68x14 64x5 68x8 65x3 69 68x8 69 68x5 65x2 68x14 65x4 68x3 65 69 65 68x5 69 68x4 65x3 69 68x4 65x3 68 69 68x4 81 68x10 , 68x11 81 84 68x5 81 68x19 64x3 80x5 68 65x2 68x7 65x2 68x3 65 68x7 64x4 68x28 65x3 68x13 81 68x10 , 68x11 81 96 68x5 81 68x22 64x5 68x3 65 68x5 65 68x5 65x2 68x4 65x2 68x26 65x2 68x16 65 68x3 81 68x10 , 86 68x10 81 68 65x2 68x3 81 68x26 81 68x12 81 68x9 65x2 68x13 80x4 68x2 65 80x4 68 65 68 80x4 68x5 80x5 68 65x2 68x3 81 68x10 , 68x11 64x5 112x2 64 68x26 64x8 112x2 64x60 112x2 64 "
 , 
@@ -78,7 +78,6 @@ levels=
  "28 68x14 39x71 78 79 39x26 , 68x15 81 78 79 74 39x3 74 39x3 74 39x2 78 79 39x8 74 39x5 78 79 39x2 74 39x3 78 79 39x5 74 39x4 78 79 39x3 74 39x9 74x2 39x4 94 95 39 74 39x3 74 39 74 39x6 78 79 39x3 74 39x2 74 39x2 81 , 68x15 81 94 95 39x11 94 95 39x3 74 39x10 94 95 39x6 94 95 39x8 78 79 94 95 39x7 78 79 39x5 78 79 74 39x5 78 79 74 39x8 78 79 94 95 39x2 74 39 78 79 39x3 81 , 68x15 81 39x3 68x5 39 78 79 39x2 68x5 39x2 78 79 39 68x5 39x4 78 68x5 39x5 68x5 95 39x2 74 39 68x5 94 95 39x3 68x5 39x5 68x5 78 79 39x3 68x5 39x4 94 68x4 81 , 68x15 81 39 74 39 68x5 39 94 95 39 74 68x5 39x2 94 95 39 68x5 39 74 39x2 94 68x5 39x2 74 39x2 68x5 39 74 39x3 68x5 39x5 68x5 39x5 68x5 94 95 39 74 39 68x5 39x2 78 79 39 68x4 81 , 68x15 81 39x3 68x5 39x5 68x5 39x5 68x5 39x5 68x5 39x5 68x5 39x5 68x5 79 39x4 68x5 39x5 68x5 39x3 78 79 68x5 39x2 94 95 39 68x4 81 , 68x15 81 68x97 81 , 68x15 81 68x97 81 , 68x15 81 68x6 81 85 68x60 81 84 68x27 81 , 68x6 64x16 81 96 68x82 64x8 , 68x6 81 68x15 115 68x82 84 81 , 68x6 81 68x45 69 68x26 69 68x26 81 , 68x6 81 33 68x6 33 68x6 33 68x84 81 , 68x6 81 68 13 68x20 81 85 68x75 81 , 68x6 64x23 81 96 68x68 64x8 , 68x29 81 68x69 81 , 68x29 81 68x69 81 , 68x29 81 68x61 85 81 68x6 81 , 68x29 64x8 68x21 56 68x32 97 81 64x7 , 68x36 81 68x55 81 , 68x36 81 68x55 81 , 68x36 81 68x6 81 85 68x47 81 , 68x36 64x7 81 96 68x40 64x8 , 68x43 81 68 118 102 68x3 66 67 68x6 66 67 68x7 66 67 68x6 66 67 68x8 115 69 99 117 69 81 , 68x43 81 68 118 102 68x3 82 83 68x2 33 68x3 82 83 68x7 82 83 68x6 82 83 68x10 99 117 68 81 , 68x43 81 68 118 102 68x10 49 68x29 99 117 68 81 , 68x42 52 64x48 , "
 }
 current_level = 2
-
 torch_arr = {}
 dash_tail_arr = {}
 boss_arr = {}
@@ -86,17 +85,12 @@ fboss_arr = {}
 fboss_fir1 = {}
 fboss_fir2 = {}
 sprires_heart = {13,14,15}
-
 sprires_enemy = {48,49,50}
-
 sprites_coin = {28,29,30,31}
-
 walk_enemy = 48
 walk_spr_count = 2
-
 fly_enemy = 33
 fly_spr_count = 2
-
 undergr_enemy = 52
 undergr_spr_count = 3
 spike_spr = 55
@@ -248,11 +242,17 @@ set_lvl(1)
 music(18)
 end
 str_game= true
+if mode > 0 and current_level > 2 then
+c_l = current_level-1
+b_p_z = point_zone.last
+set_lvl(c_l)
+hero.hp = s_a[c_l-2].hp
+hero.coins = s_a[c_l-2].c
+hero.s = s_a[c_l-2].s
+point_zone.last = b_p_z
+set_p()
+else
 hero.hp = mode==1 and 1 or hero.hp
-if mode==2 then
-mset(1,1,56)
-level_initialiation()
-skil_rest = 3
 end
 end
 end end
@@ -315,6 +315,12 @@ go_init()
 go_time = time()-go_st_time
 if go_time == 3 then
 hero.hp = mode==1 and 1 or 3
+set_p()
+mm_status = 0
+go_start = 0
+end
+end
+function set_p()
 if point_zone
 [point_zone.last] ~= nil
 then
@@ -327,13 +333,9 @@ if current_level == 10 then
 set_lvl(9)
 end
 end
-mm_status = 0
-go_start = 0
-end
 end
 
 function go_init()
-
 if go_start == 0 then
 go_start = 1
 music(-1)
@@ -465,7 +467,7 @@ update_ex_h(hero)
 col = collide(ex_hero,33,is_b,1,1)
 if (col ~= nil and
 col.y ~= nil) then
-if current_level != lm_max_button then
+if current_level < lm_max_button then
 s_a[current_level-2].hp = hero.hp
 s_a[current_level-2].c = hero.coins
 s_a[current_level-2].s = hero.s
@@ -473,7 +475,7 @@ if(dget(0) < hero.s) then
 dset(0,hero.s)
 record_score = hero.s
 end
-maxlvc+=1
+maxlvc= maxlvc+2==current_level and maxlvc+1 or maxlvc
 set_lvl(current_level)
 end
 end
@@ -942,7 +944,7 @@ end
 function no_map_cols_n(obj,cols,radius,y_param)
 for i = 0,#cols,1 do
 if no_map_col(obj,cols[i],radius,y_param) then
-return i                  
+return i
 end
 end
 return nil
@@ -986,7 +988,6 @@ if(col ~= nil or (col2 == nil and not enemy.flyaible)) then
 enemy.sx *= -1
 end
 end
-
 function enemy_ex()
 local f,i
 if #enemy_arr > 0 then
@@ -995,8 +996,7 @@ i = mget(enemy_arr[j].x,enemy_arr[j].y)
 enemy_arr[j].img = i
 mset(enemy_arr[j].x,enemy_arr[j].y,68)
 f = i == walk_enemy or i == fly_enemy or i == undergr_enemy
-enemy_arr[j].img = f and
-         i or i-1         
+enemy_arr[j].img = f and i or i-1         
 enemy_arr[j].x *= 8
 enemy_arr[j].y *= 8
 enemy_arr[j].sx = 1
@@ -1031,7 +1031,7 @@ end
 diff_x = hero.x - arr[i].x*8
 diff_y = hero.y - arr[i].y*8
 if(skil_rest >= 3) then
-  if(abs(diff_x) >= abs(diff_y)) then
+if(abs(diff_x) >= abs(diff_y)) then
 arr[i].x += diff_x * g_time/abs(diff_x)/10 
 else
 arr[i].y += diff_y * g_time/abs(diff_y)/20   
@@ -1043,9 +1043,9 @@ function do_damage(x,y)
 if x*8 >= hero.x and x*8 < hero.x+16 and
 y*8 >= hero.y and y*8 < hero.y+16 and not save_form then
 return true
-else 
+else
 return false
-end    
+end
 end
 fboss_blast = 0
 fboss_fly = 1
@@ -1061,39 +1061,39 @@ sfx"62"
 add_fboss_fir1(arr[i].x,arr[i].y,hero.x+hero.sx*100,hero.y+16)
 end
 end
-if my_time%16 == 0 then 
+if my_time%16 == 0 then
 fboss_fly = 0 - fboss_fly
-end  
+end
 if fboss_blast > 0 then
 fboss_blast -= 1
 end
-if diff_y < 32 then 
+if diff_y < 32 then
 arr[i].y -= 1/8
 elseif diff_y > 40 then
 arr[i].y += 1/8 else
 arr[i].y += fboss_fly/16
-end  
+end
 if diff_x < -30 then
 arr[i].x -= 1/4
-end 
-if diff_x > -45 then 
+end
+if diff_x > -45 then
 arr[i].x += 1/4
-end 
-if diff_x < -35 then 
+end
+if diff_x < -35 then
 arr[i].x -= 1/8
-end 
+end
 if diff_x > -40 then
 arr[i].x += 1/8
 end
-end 
-end 
+end
+end
 function normilize(arr)
 local temp = {}
 for i=1,#arr+1 do
 temp[i] = arr[i-1]
 end
 return temp
-end 
+end
 
 -->8
 function get_sumb_index(str,start_sub,sumb)
@@ -1128,10 +1128,6 @@ for i = 0, #pz, 1 do
 pz[i].is_active = false
 mset(pz[i].x,pz[i].y,blk)
 end end
-
-
-
-
 -->8
 function _draw()
 cls()
@@ -1146,7 +1142,7 @@ level_draw()
 elseif mm_status == 2 then
 print("press ❎",40,0)
 for i = 2,5,1 do
-print(end_ct[i],10,i*10)  end
+print(end_ct[i],10,i*10)end
 elseif mm_status == 3 then
 level_menu_draw()
 else
@@ -1172,11 +1168,10 @@ palt(0,true)
 for i=0,4,1 do
 sky_add((i*20)%41,i*16)
 end
-m_y = 48
+m_y =48
 end
 function sky_add(x,y)
-sspr(112,32,16,16,
-x+sky,y,32,32)
+sspr(112,32,16,16,x+sky,y,32,32)
 end
 function main_menu()
 if start_mode == 0 then
@@ -1184,15 +1179,14 @@ draw_start_logo()
 end
 draw_rect(14,m_y,6,7)
 if mm_pos==0 and (dbg or maxlvc>8) then
-print("choose mod:\n".."⬅️"..(mode==0 
-and "normal" or(mode==1 and 
-"one hearth" or "two mages")).."➡️"
-,16,84)
+print("choose mod:\n".."⬅️"..(mode==0
+and "normal" or(mode==1 and
+"one hearth" or "two mages")).."➡️",16,84)
 end
 button_m(str_game and "continue" or "start",0,16,5,mm_pos)
 button_m("about",1,16,5,mm_pos)
 button_m("levels",2,16,5,mm_pos)
-sstt = mm_pos == 3 and "\n \t(reset) " or ""                    
+sstt = mm_pos == 3 and "\n \t(reset) " or ""            
 button_m("record: "..record_score..sstt,3,16,20,mm_pos)
 end
 function button_m(name,pos,x,y,cont)
@@ -1245,13 +1239,10 @@ draw_fboss_fir(fboss_fir2)
 _draw_hero()
 draw_strength()
 end
-
 function _draw_enemy(arr)
-
 if(#arr > 0) then
 for i=0,#arr,1 do
-spr(
-flr(arr[i].img + (my_time/4)%arr[i].max_f),arr[i].x,arr[i].y,1,1,sgn(arr[i].sx) == 1,false)
+spr(flr(arr[i].img + (my_time/4)%arr[i].max_f),arr[i].x,arr[i].y,1,1,sgn(arr[i].sx) == 1,false)
 if not arr[i].is_active then
 spr(spike_spr,arr[i].x,arr[i].y - sgn(arr[i].y-hero.y)*8,1,1,false,sgn(arr[i].y-hero.y) < 0)
 end
@@ -1295,11 +1286,9 @@ h_dr (0+16*rt,16,-4+2*rt)
 end
 draw_dialogue()
 img =img>=max_frame and 0or img end
-
 function h_dr(x,h,d)
 sspr (x,0,16,h, hero.x+3,hero.y +d,16,h,
 sgn(hero.sx) == -1,false) end
-
 function draw_dialogue()
 if #dial_arr > 0 then
 for i=0,#dial_arr,1 do
@@ -1309,7 +1298,7 @@ print(dial_arr[i].d,hero.x-24,
 hero.y-16)
 end
 if no_map_col(hero,dial_arr[i],32,0) then
-print("press ❎", hero.x,hero.y-24)                   
+print("press ❎", hero.x,hero.y-24)           
 if (btnp(5)) then
 g_time = g_time == 0 and 1 or 0
 dial_arr[i].is_active = not dial_arr[i].is_active
@@ -1325,7 +1314,7 @@ if(ch_t > 20) then
 p+=1
 for i=0,#buff_arr,1 do
 mset( buff_arr[i].x/8, buff_arr[i].y/8 ,buff_arr[i].is_active and buff_arr[i].ico + (p)%2 or 68) end
-ch_t = 0 
+ch_t = 0
 end
 end end
 function draw_hero_hp()
@@ -1356,12 +1345,12 @@ local s3 = sub(sub_str,0,x_sym-1)
 mset(x,y,s3)
 x += 1
 end
-end     
+end
 end
 end
 function clean()
 for i = 0, 128, 1 do
-for j = 0, 48, 1 do
+for j = 0, 52, 1 do
 mset(i,j,39)
 end
 end
@@ -1370,16 +1359,16 @@ function set_lvl(lvl_num)
 if(lvl_num > 1 and lvl_num < 10) then
 clean()
 map_parse(levels[lvl_num-1],0)
-if mode==2 then
-mset(1,1,56)
-skil_rest = 3
-end
 else
 for x=0,38,1 do
 for y=0,25,1 do
 mset(x,y,ft_lvl[x][y])
 end
 end
+end
+if mode==2 then
+mset(1,1,56)
+skil_rest = 3
 end
 music(-1)
 second_save = mode==1 and 9 or 3
@@ -1398,7 +1387,7 @@ str_game = false
 hero.x = finstr.x*8
 hero.y = finstr.y*8
 chains_zone = {}
-skil_rest = mode != 2 and 0
+skil_rest = mode != 2 and 0 or skil_rest
 end
 end
 function draw_hero_coins()
@@ -1408,22 +1397,21 @@ print(hero.coins,hero.x-45,hero.y-28,9)
 end
 end
 function draw_arr(array,spd,ind,spr_am)
-if(array ~= nil and array[0] ~= nil) then                
- for i = 0, #array, 1 do
+if(array ~= nil and array[0] ~= nil) then
+for i = 0, #array, 1 do
 mset(array[i].x,array[i].y,array[i].is_active and 68 or ind+flr(my_time/spd+flr(array[i].x))%spr_am)
 end
-end                        
+end
 end
 function draw_dash_tail()
 if #dash_tail_arr != 0 then
 for i = 0,4 do
 if dash_tail_arr[i] != nil then
 spr(dash_tail_arr[i].spr,dash_tail_arr[i].x,dash_tail_arr[i].y)
-end    
 end
 end
 end
-
+end
 function draw_strength()
 local length = dash_sg/4
 if( skil_rest > 1) then
@@ -1432,18 +1420,16 @@ spr(32, hero.x-56 + i*5,hero.y-38)
 end
 end
 end
-
 function draw_fboss_fir(arr)
 for i = 1,# arr do
 temp_rnd = flr((my_time%19)/10)
 spr(36+temp_rnd,arr[i].x*8,arr[i].y*8)
-end 
 end
-
+end
 function a_text(ll,ul,tet) if fin_t > ll and fin_t<ul then print(tet,hero.x-64,hero.y-40) end end
 fin_t=0
 end_ct={"thanks for game!","producer: stanislav skorb","programmer: koti4 and gate", "designer: vikat and danny", "composer: pavvl", "you open 2 mod!"}
-function final_cut() 
+function final_cut()
 fin_t += 1 for i = 0,5,1 do
 a_text(i*90,80*(i+1),end_ct[i+1])
 a_text(400,425,end_ct[6]) end end
