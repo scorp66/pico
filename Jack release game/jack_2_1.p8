@@ -29,8 +29,6 @@ skil_rest = 0
 d_timer = 0
 g_time = 1
 start_mode = 0
-time_crouch = 0
-max_time_crouch = 40
 movement.x = hero.x
 movement.y = hero.y
 dash = 0
@@ -39,7 +37,6 @@ hero.sx = 1
 hero.sy = 1 
 jump_power = 3.9
 hero.on_flore = false
-gravity = 0.3
 time_damage = 1
 second_save = 3
 save_ef_speed = 21
@@ -47,8 +44,6 @@ save_form = false
 img = 0
 max_frame = 3
 last = 0
-lov_gr_time = 0
-gr_max_time = 70
 ft_lvl = {{}}
 for x=0,38,1 do
 ft_lvl[x] = {}
@@ -91,7 +86,6 @@ mm_status = 0
 mm_max_button = 4
 lm_pos = 0
 lm_max_button = 11
-tr_str = ""
 xpow = 1
 action = true
 ex_hero = {}
@@ -132,7 +126,7 @@ if(current_level < 11) then
 point_zone = find_point_zone(1)
 buff_arr = find_point_zone(240)
 buff_ex()
-button_zone = find_point_zone(16) 
+button_zone = find_point_zone(16)
 button_ex()
 chains_zone = find_point_zone(66)
 chains_ex()
@@ -165,7 +159,7 @@ function s_a_ini()
 for i = 0,10,1 do
 s_a[i] = {}
 s_a[i].hp = 3
-s_a[i].c = 0 
+s_a[i].c = 0
 s_a[i].s = 0
 record_score = dget(0)
 end
@@ -173,12 +167,12 @@ end
 -->8
 function _update()
 if mm_status == 0 then 
-main_menu_update()
 if(stat(16) == -1 and 
 stat(17)== -1 and
 stat(18) == -1) then
 music(0) 
 end
+main_menu_update()
 elseif mm_status == 1 then
 if(stat(16) == -1 and 
 stat(17)== -1 and
@@ -229,20 +223,24 @@ sfx"53"
 mm_pos = (mm_pos+1)%mm_max_button
 end
 if btnp(❎) then
-music"-1"
 sfx"53"
+music(-1)
 if(maxlvc > 0 and mm_pos+1 == 3) or mm_pos+1 ~= 3 or dbg then
 mm_status = mm_pos+1
 if mm_status==1 then
 if(not str_game) then
 set_lvl(1)
-music(18)
 end
 str_game= true
 if mode > 0 and current_level > 2 then
 c_l = current_level-1
 b_p_z = point_zone.last
 set_lvl(c_l)
+skil_rest = current_level < 5
+and 0 or (current_level < 7
+and 1 or (current_level < 9
+and 2 or (current_level < 11
+and 3 or 0)))
 hero.hp = s_a[c_l-2].hp
 hero.coins = s_a[c_l-2].c
 hero.s = s_a[c_l-2].s
@@ -276,7 +274,7 @@ hero.coins = s_a[lm_pos-1].c
 hero.s = s_a[lm_pos-1].s
 current_level = lm_pos+1
 skil_rest = current_level < 5
-and 0 or (current_level < 7 
+and 0 or (current_level < 7
 and 1 or (current_level < 9
 and 2 or (current_level < 11
 and 3 or 0)))
@@ -341,7 +339,7 @@ local temp = false
 for i = 1,#arr do
 if(cell == arr[i]) then
 temp = true
-end 
+end
 end
 return temp
 end
@@ -371,9 +369,9 @@ end
 if(abs(diff_x) >= 5) then
 arr[i].x += diff_x/abs(diff_x)/3
 else
-arr[i].y += diff_y/abs(diff_y)/4   
-end              
-end 
+arr[i].y += diff_y/abs(diff_y)/4  
+end      
+end
 end
 function add_fboss_fir1(x,y,ax,ay)
 local temp = {}
@@ -400,7 +398,7 @@ ind += 1
 end
 end
 fboss_fir1 = temp
-end 
+end
 function del_fboss_fir2(index)
 local temp = {}
 local ind = 1
@@ -411,7 +409,7 @@ ind += 1
 end
 end
 fboss_fir2 = temp
-end 
+end
 -->8
 function key_control()
 if (btnp(5) and current_level== 11) or fin_t > 440 then
@@ -453,6 +451,7 @@ if mode != 1 then
 hero.hp +=1
 else
 save_form = true
+last = time()
 end
 sfx"59"     
 end  
@@ -508,7 +507,7 @@ colx = dist_to_col(ex_hero,1,is_b2,1,crouch)
 update_ex_h(hero)
 ex_hero.sy = sgn(hero.sy)
 coly = dist_to_col(ex_hero,1,is_b2,1,crouch)
-hero.sy += g_time * gravity
+hero.sy += g_time * 0.3
 if coly ~= nil then
 if coly.y <= hero.sy then
 hero.sy = -2*sgn(hero.sy)
@@ -699,12 +698,10 @@ d.s = 115
 d.s2 = 116 end
 return d
 end
-
 ch_time = 0
 function draw_chains(ch_obj,n,n2)
 local ch =  ch_obj.ch
 local dir_c = ch_obj.d
-
 ch_time = ch_time >= 1 and 0or ch_time
 local x = ch_obj.x+(dir_c.x*ch)                  
 local y = ch_obj.y+(dir_c.y*ch)
@@ -1288,6 +1285,9 @@ function draw_hero_hp()
 if current_level < 11 then
 for i = 1,hero.hp do
 spr(12,hero.x-64+9*i,hero.y-46)
+end
+if mode==1 and save_form then
+print(time_damage,hero.x-40,hero.y-44)
 end
 end
 end
