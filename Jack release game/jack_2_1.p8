@@ -232,15 +232,10 @@ if(not str_game) then
 set_lvl(1)
 end
 str_game= true
-if mode > 0 and current_level > 2 then
+if mode > 1 and current_level > 2 then
 c_l = current_level-1
 b_p_z = point_zone.last
 set_lvl(c_l)
-skil_rest = current_level < 5
-and 0 or (current_level < 7
-and 1 or (current_level < 9
-and 2 or (current_level < 11
-and 3 or 0)))
 hero.hp = s_a[c_l-2].hp
 hero.coins = s_a[c_l-2].c
 hero.s = s_a[c_l-2].s
