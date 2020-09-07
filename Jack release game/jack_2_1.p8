@@ -49,7 +49,7 @@ max_frame = 3
 last = 0
 ft_lvl = {{}}
 for x=0,38,1 do
-ft_lvl[x] = {}
+ft_lvl[x]= {}
 for y=0,25,1 do
 ft_lvl[x][y]=mget(x,y)
 end
@@ -94,23 +94,23 @@ mode = 0
 end
 current_dial = 0
 dialogues = {
-{"press jump to ⬆️",
-"be aware of spikes",
-"try to jump on this",
+{"press ⬆️ to jump",
+"beware of spikes",
+"try to jump",
 "collect hearts",
-"torches are not \n danger",
-"collect coin!"},
+"torches are not \ndangerous",
+"collect coins!"},
 {},
 {
 "this castle is \n crawling with all \n sorts of creatures. \n be on the alert",
-"sometimes you need \n to calculate where \n you want to jump.",
-"this is a new \n ability! hold the \n jump key to bounce \n off walls.",
-"i bet you can't \n collect all the \n coins.."
+"sometimes you'll \n need to choose a\nplace to jump from.",
+"this is a new \n ability! hold the \n ⬆️ key to bounce\n off walls.",
+"i dare you to \n collect all the \n coins."
 },
 {},
 {
-"the rust from your \n springs has gone \n down, hold ⬇️ to \n bend down.",
-"warning!",
+"your spring is well \n oiled now. \n hold ⬇️ to duck.",
+"beware!",
 "your spring gets \n tired, spend it \n wisely.",
 "only the most adept \n will be able to \n pass it!"
 },
@@ -119,9 +119,7 @@ dialogues = {
 "",
 "beware of the cursed \n cup! tap ➡️ or \n ⬅️ to escape the \n curse"
 },
-{
-},{}
-}
+{},{}}
 function level_initialiation()
 if(current_level < 11) then
 point_zone = find_point_zone(1)
@@ -138,19 +136,19 @@ fboss_arr = find_point_zone(37)
 if fboss_arr[0] ~= nil then
 mset(fboss_arr[0].x,fboss_arr[0].y,68)
 end
-fboss_arr = normilize(fboss_arr)
-torch_arr = find_point_zone(48)
-heart_arr = find_point_zone(80)
-coin_arr = find_point_zone(96)
-dial_arr = find_point_zone(17)
-current_dial = 0
+fboss_arr =normilize(fboss_arr)
+torch_arr =find_point_zone(48)
+heart_arr =find_point_zone(80)
+coin_arr =find_point_zone(96)
+dial_arr =find_point_zone(17)
+current_dial= 0
 dial_ex()
-enemy_arr = find_point_zone(132)
+enemy_arr =find_point_zone(132)
 enemy_ex()
 else
 fboss_arr = {}
-for i=0,127, 1 do
-for j = 0,57,1 do
+for i=0,127,1 do
+for j=0,57,1 do
 mset(i,j,39)
 end
 end
@@ -159,16 +157,12 @@ end
 -->8
 function _update()
 if mm_status == 0 then 
-if(stat(16) == -1 and 
-stat(17)== -1 and
-stat(18) == -1) then
+if(stat(16) == -1 and stat(17)== -1 and stat(18) == -1) then
 music(0) 
 end
 main_menu_update()
 elseif mm_status == 1 then
-if(stat(16) == -1 and 
-stat(17)== -1 and
-stat(18) == -1 and 
+if(stat(16) == -1 and stat(17)== -1 and stat(18) == -1 and 
 current_level < 11) then 
 music(current_level == 10 and 8 or (skil_rest == 3 and current_level == 8 and 28 or 18))
 end
@@ -205,7 +199,7 @@ if btnp(➡️) then
 mode = (mode+1)%3
 end
 if btnp(⬅️) then
-mode = mode <= 0 and 2 or mode-1
+mode=mode<= 0 and 2 or mode-1
 end
 end
 if btnp(⬆️) then
@@ -266,11 +260,7 @@ hero.hp = hero.hp==0 and 3 or hero.hp
 hero.coins = dget(9+lm_pos)
 hero.s = dget(20+lm_pos)
 current_level = lm_pos+1
-skil_rest = current_level < 5
-and 0 or (current_level < 7
-and 1 or (current_level < 9
-and 2 or (current_level < 11
-and 3 or 0)))
+skil_rest = current_level < 5 and 0 or (current_level < 7 and 1 or (current_level < 9 and 2 or (current_level < 11 and 3 or 0)))
 mm_status = 1
 end
 end
@@ -306,9 +296,7 @@ go_start = 0
 end
 end
 function set_p()
-if point_zone
-[point_zone.last] ~= nil
-then
+if point_zone[point_zone.last] ~= nil then
 hero.x = point_zone[point_zone.last].x*8
 hero.y = (point_zone[point_zone.last].y-1)*8
 else
@@ -367,7 +355,7 @@ end
 end
 end
 function add_fboss_fir1(x,y,ax,ay)
-local temp = {}
+local temp ={}
 temp.x = x
 temp.y = y
 temp.ax = ax
@@ -436,14 +424,13 @@ dset(0,hero.s)
 record_score = hero.s
 end
 maxlvc= maxlvc+2==current_level and maxlvc+1 or maxlvc
-dset(1,maxlvc)
+dset(1,maxlvc+1)
 set_lvl(current_level)
 end
 end
 update_ex_h(hero)
 col = collide(ex_hero,80,is_b,1,crouch)
-if col ~= nil and col.x ~= nil
-then
+if col ~= nil and col.x ~= nil then
 update_point(col,heart_arr,68,save_method)
 hero.s+=50
 if mode != 1 then
@@ -456,8 +443,7 @@ sfx"59"
 end
 update_ex_h(hero)
 col = collide(ex_hero,96,is_b,1,crouch)
-if col ~= nil and col.x ~= nil
-then
+if col ~= nil and col.x ~= nil then
 update_point(col,coin_arr,68,save_method)
 hero.coins +=1
 hero.s+=10*(mode+1)
@@ -473,12 +459,7 @@ update_chains()
 end
 update_ex_h(hero)
 col = dist_to_col(ex_hero,2,is_b2,1,crouch)
-if ((col  ~= nil and
-col.x <= hero.sx) or
-(col  ~= nil and
-col.y <= hero.sy))
-and not save_form
-then
+if ((col  ~= nil and col.x <= hero.sx) or (col  ~= nil and col.y <= hero.sy)) and not save_form then
 hero.hp-=1
 sfx"55"
 save_form = true
@@ -487,11 +468,7 @@ update_save_form()
 jump_s_b = false
 update_ex_h(hero)
 col = dist_to_col(ex_hero,3,is_b2,1,1)
-if (col  ~= nil and
-col.y <= hero.sy) or
-(col  ~= nil and
-col.x <= hero.sx)
-then
+if (col  ~= nil and col.y <= hero.sy) or (col  ~= nil and col.x <= hero.sx) then
 sfx"56"
 hero.sy = 0 - (jump_power*1.55)
 jump_s_b = true
@@ -512,16 +489,13 @@ if coly.y <= hero.sy then
 hero.sy = -2*sgn(hero.sy)
 else
 hero.y = ((hero.sy ~= 0 and
-coly.y-9 <= 0) and
-not hero.is_crouch) and
+coly.y-9 <= 0) and not hero.is_crouch) and
 flr(hero.y/8)*8 or hero.y
 hero.sy = coly.y-9 <= 0 and 0or coly.y-9
 end
 end
 xd = abs(flr((hero.sx-1)/2))
-if colx ~= nil and
-colx.x <= hero.sx-(12*xd)
-then
+if colx ~= nil and colx.x <= hero.sx-(12*xd) then
 if (hero.sy==0 or hero.is_crouch)then
 hero.sx *= -1
 else
@@ -529,7 +503,7 @@ xpow = 0
 end
 double_jump()end
 xpow =(colx == nil or
-hero.on_flore) and 1or xpow
+hero.on_flore) and 1 or xpow
 update_ex_h(hero)
 ex_hero.sy = -1
 coly = dist_to_col(ex_hero,1,is_b2,1,1)
@@ -1152,7 +1126,7 @@ button_m(str_game and "continue" or "start",0,16,5,mm_pos)
 button_m("about",1,16,5,mm_pos)
 button_m("levels",2,16,5,mm_pos)
 sstt = mm_pos == 3 and "\n reset memory" or ""            
-button_m("record: "..record_score..sstt,3,16,20,mm_pos)
+button_m("record:"..record_score..sstt,3,16,20,mm_pos)
 end
 function button_m(name,pos,x,y,cont)
 print(cont== pos and'❎'..name or name,x,(10*pos)+m_y+y,cont == pos  and 11 or 7)
@@ -1262,8 +1236,8 @@ print(dial_arr[i].d,hero.x-24,
 hero.y-16)
 end
 if no_map_col(hero,dial_arr[i],32,0) then
-print("press ❎", hero.x,hero.y-24)           
-if (btnp(5)) then
+print(dial_arr[i].is_active and "" or"press ❎ to read", hero.x-16,hero.y-24)           
+if (dial_arr[i].is_active and(btnp(5) or btnp(1)or btnp(2)or btnp(3)or btnp(4) or btnp(0)) or(btnp(5) and not dial_arr[i].is_active)) then
 g_time = g_time == 0 and 1 or 0
 dial_arr[i].is_active = not dial_arr[i].is_active
 end end end
