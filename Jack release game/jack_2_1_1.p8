@@ -94,7 +94,7 @@ mode = 0
 end
 current_dial = 0
 dialogues = {
-{"press ⬆️ to jump",
+{"press ⬆️ or 🅾️\nto jump",
 "beware of spikes",
 "try to jump",
 "collect hearts",
@@ -102,17 +102,17 @@ dialogues = {
 "collect coins!"},
 {},
 {
-"this castle is \n crawling with all \n sorts of creatures. \n be on the alert",
-"sometimes you'll \n need to choose a\nplace to jump from.",
-"this is a new \n ability! hold the \n ⬆️ key to bounce\n off walls.",
-"i dare you to \n collect all the \n coins."
+"this castle is\ncrawling with all\nsorts of creatures.\nbe on the alert",
+"sometimes you'll\nneed to choose a\nplace to jump from",
+"this is a new\nability! hold the\n⬆️ key to bounce\noff walls",
+"i dare you to\ncollect all the\ncoins"
 },
 {},
 {
-"your spring is well \n oiled now. \n hold ⬇️ to duck.",
+"your spring is well\noiled now,\nhold ⬇️ to duck",
 "beware!",
-"your spring gets \n tired, spend it \n wisely.",
-"only the most adept \n will be able to \n pass it!"
+"your spring gets\ntired, spend it\nwisely",
+"only the most adept\nwill be able to\npass it!"
 },
 {},
 {
@@ -507,7 +507,7 @@ hero.on_flore) and 1 or xpow
 update_ex_h(hero)
 ex_hero.sy = -1
 coly = dist_to_col(ex_hero,1,is_b2,1,1)
-if(btnp(⬆️)and not hero.is_crouch
+if( (btnp(⬆️)or btnp(4)) and not hero.is_crouch
 and hero.on_flore)
 and coly == nil then
 sfx"52"
@@ -565,7 +565,7 @@ function double_jump()
 update_ex_h(hero)
 ex_hero.sy = -1
 coly = dist_to_col(ex_hero,1,is_b2,1,1)
-if btnp(⬆️)and hero.sy>0 and
+if (btnp(⬆️)or btnp(4))and hero.sy>0 and
 coly== nil and skil_rest >0
 and not hero.is_crouch
 then
@@ -1772,4 +1772,3 @@ __music__
 00 2e2d2f44
 02 2e2a2f44
 03 30313244
-
